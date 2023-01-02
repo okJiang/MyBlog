@@ -1,196 +1,623 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="okJiang">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:site_name" content="okJiang">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="okJiang">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 5.4.2"></head>
+<link rel="canonical" href="http://example.com/">
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>okJiang</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="okJiang" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">okJiang</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">自娱自乐</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/okJiang/okJiang.github.io" class="github-corner" title="GitHub" aria-label="GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/12/31/hello-world/" class="article-date">
-  <time datetime="2022-12-31T06:24:18.172Z" itemprop="datePublished">2022-12-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/12/31/hello-world/">Hello World</a>
-    </h1>
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/01/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="okJiang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="okJiang">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/01/01/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">2022年终总结——幸运开心的一年</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-01-01 20:00:52" itemprop="dateCreated datePublished" datetime="2023-01-01T20:00:52+08:00">2023-01-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-03 01:47:13" itemprop="dateModified" datetime="2023-01-03T01:47:13+08:00">2023-01-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">年终总结</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+          <p>第一次写年终总结呀，尝试记录一下。一年下来还真发生了不少事。看看自己有啥收获有啥成长。</p>
+<h2 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h2><p>先说说工作吧。从南大毕业后，我去了 PingCAP（贵司）工作，现在在贵司的 DM（Data Migration）团队工作，差不多就在数据导入、数据迁移以及其对应的云上版本这些地方搬砖。去年就有在贵司实习，主要在维护 DM，也就是怎么把一条 binlog 写到下游 TiDB 里面，和 MySQL binlog 打交道比较多。今年入职后，顺应公司的战略，主要在 tidbcloud.com 上 CRUD，帮助用户在 cloud 上导入或迁移数据，和 k8s、CRUD 以及用户体验打交道比较多。</p>
+<p>简单总结一下学到的东西吧，从实习到现在：</p>
+<ol>
+<li>单元测试、集成测试</li>
+<li>多线程代码</li>
+<li>review 代码</li>
+<li>写设计文档</li>
+<li>理解一个需求是任何工作的第一步</li>
+<li>对一个需求进行项目管理，以尽可能地按时交付（当然现在还做的不够好。。。）</li>
+<li>学习了 K8s/CRD/Operator/AWS/Pulumi 相关的知识，能看懂代码，并编写简单的代码</li>
+<li>更多地考虑用户体验</li>
+<li>。。</li>
+</ol>
+<p>再谈谈工作的感受。对于我这第一份正式的工作，我是非常满意我当前的团队和公司的。不论是公司还是团队内，大佬非常多，可以在他们身上学到很多东西。团队内的人大家实事求是、互相帮助，我是没有遇到什么尔虞我诈，为了利益起冲突的情况，很 nice！虽然很多人诟病贵司已经不是以前的贵司了，之前的工程师文化没有那么纯粹了，但我还是帮公司说句话。今年 2022 年的环境大家还是可以看得到的，同样以工程师文化著称的小马，已经把 22 届大部分的应届生裁掉了，我有同学就在被裁名单里。所以对于一个同样是应届生的我，我还是很佩服公司的战略和定力，以帮助公司继续生存下去，毕竟活下去才有未来。我知道这两者也并不是冲突的，但我还是庆幸公司能让我有一个地方学习和成长。当然，大家也都会希望自己的公司能越来越好！</p>
+<p>记录一下：今年 1 月份全组人员齐聚北京团（mian）建（ji），第一次正式见到了来自成都、北京、杭州、上海的各位大佬，也跟着 mentor 没羞没臊地蹭吃蹭喝玩了两天哈哈。不得不说，太爽了哈哈哈🐶。</p>
+<h2 id="学生生涯"><a href="#学生生涯" class="headerlink" title="学生生涯"></a>学生生涯</h2><p>今年终于从硕士毕业了。坦诚地对硕士这三年做个简短的总结吧。自己在三年中几乎没有任何的成果，连一篇论文都没发过，在科研这条路上，我也算的上是彻底失败了。不过这三年比较幸运的是，我在研一下就意识到了自己不适合走科研这条路，所以花了很多时间在思考和实践自己以后要做什么这个问题上。也找到了自认为短中期内发展还不错的数据库这条道路。</p>
+<blockquote>
+<p>在读书期间，经常和同学调侃，读研最大的作用，就是发现了读研没用。哈哈哈，这句话可能有点过，但也是只有读研后，才能理解很多大佬说的，「国内的研究有些浮躁」中<strong>浮躁</strong>的含义吧（叹息）</p>
+</blockquote>
+<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><p>在毕业后，正式开启了我自己的生活。这一次和我之前的实习都不一样，我第一次拒绝了合租，选择了一个人整租一个小区里的一室一厅。在省钱和生活质量中选择了后者。当时在来广州之前就疯狂地看房，幻想着自己一个人自由的生活哈哈哈。来了广州之后就疯狂地找房子，一室一厅的小区房实在是太少了🤮。我遇到一个 2500/月 60 平的房子，下午 2 点看完饭，下午 4 点就被租出去了！就是被我后面一个看房的人租走了。。。这效率简直了。最后租到了一间 3000 出头的一室一厅，房东非常 nice，给配了新的马桶、电热水器、空调、抽油烟机和灶台，甚至还重新装修了厨房！虽然还有不足的地方，但我已经非常满足了！</p>
+<h3 id="添置新物件"><a href="#添置新物件" class="headerlink" title="添置新物件"></a>添置新物件</h3><h4 id="大桌子✅"><a href="#大桌子✅" class="headerlink" title="大桌子✅"></a>大桌子✅</h4><p>在自己租了房子之后，必然也是要整一个正经的小书桌的啦。在闲鱼上蹲了好几天，中间还去旁边的二手市场看了，最后花 220 蹲到了这张 160✖️70 的桌子（货拉拉都花了 100+ 😂）</p>
+<p><a target="_blank" rel="noopener" href="https://imgloc.com/i/tk3cN"><img src="https://i.328888.xyz/2023/01/02/tk3cN.th.jpeg" alt="tk3cN.th.jpeg"></a></p>
+<h4 id="洞洞板✅"><a href="#洞洞板✅" class="headerlink" title="洞洞板✅"></a>洞洞板✅</h4><p>看 B 站视频还看到了这种立式的洞洞板，想到出租屋里也完全没有书架、小物件的收纳什么的，就整了一个。还行哈，比光秃秃的好多了。</p>
+<p><a target="_blank" rel="noopener" href="https://imgloc.com/i/tkHFX"><img src="https://i.328888.xyz/2023/01/02/tkHFX.th.jpeg" alt="tkHFX.th.jpeg"></a></p>
+<h4 id="人体工学椅✅"><a href="#人体工学椅✅" class="headerlink" title="人体工学椅✅"></a>人体工学椅✅</h4><p>毕竟工作需要，立马也整了个好椅子，可以用很久了</p>
+<p><a target="_blank" rel="noopener" href="https://imgloc.com/i/t0jdv"><img src="https://i.328888.xyz/2023/01/02/t0jdv.th.jpeg" alt="t0jdv.th.jpeg"></a></p>
+<h4 id="牙套✅"><a href="#牙套✅" class="headerlink" title="牙套✅"></a>牙套✅</h4><p>从很多年前自己就觉得自己的牙齿不齐，想要做牙齿矫正，但无奈因为钱或者长住地不稳定等原因，一直没开始。所以在广州安顿下来之后，立马开始了牙齿矫正的进程。上下左右拔了 4 颗牙！妈耶，疼死我了。</p>
+<h4 id="打击垫✅"><a href="#打击垫✅" class="headerlink" title="打击垫✅"></a>打击垫✅</h4><p>我自己对音乐也一直挺感兴趣的，哈哈就想做点音乐相关的爱好。之前有关注一个绝地的主播，他玩的打击垫超酷！现在有自己的空间和生活了，就整了一个二手的入门款。</p>
+<p><a target="_blank" rel="noopener" href="https://imgloc.com/i/twO4o"><img src="https://i.328888.xyz/2023/01/02/twO4o.th.jpeg" alt="twO4o.th.jpeg"></a></p>
+<p>但是非常可惜，在练完入门曲 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bv4y1B7RL/?spm_id_from=333.999.0.0&vd_source=1d41e3899bfb8af8d65144aad99bbde1">Luz letter</a> 后，在另外挑了一首<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1q8411E7ts/?spm_id_from=333.999.0.0&vd_source=1d41e3899bfb8af8d65144aad99bbde1">进阶的曲子</a>练习过程中就发现了问题——灯光跟不上节奏。。。这个入门款的灯光频率太低了，尝试了很多次之后还是放弃了继续在这款上面继续练，然后荒废到现在（哎，可惜。</p>
+<h4 id="PS5-大电视✅"><a href="#PS5-大电视✅" class="headerlink" title="PS5/大电视✅"></a>PS5/大电视✅</h4><p>在双十一的时候，收了一个二手的 PS5，还配了一个大电视！这个小出租屋也终于可以看电视了。</p>
+<p><img src="https://i.328888.xyz/2023/01/02/t0Law.jpeg" alt="t0Law.jpeg"></p>
+<p>顺带评价一下老头环吧，在 PS5 上玩的第一个游戏。之前也有玩过黑魂 3，1）所以并没有第一次玩魂类游戏那种冲击了，而且老头环的难度系数相比黑魂确实低了不少，转角杀少了特别多，所以老玩家在转角处回头的时候经常“失望”哈哈哈。2）还有一个点是堆料太严重了叭，重复的遗迹，重复的 boss，重复的墓地，单一的小怪，散落在交界地的各处，完全没有什么动力去一一扫图。。。3）对于剧情，我还是知道魂类游戏的套路的——剧情都散落在各个道具上，但我真的做不到全搜集呀！😭，而且由于地图太大，剧情太散，我真的记不住各个支线呀！4）对于开放世界，由于也玩过塞尔达这种神作，只能说宫崎英高把魂元素塞到了一个开放世界中，至于这个开放世界它“开放”吗？这管我啥事。</p>
+<p>哈哈哈，吐槽完了，但还是要说我玩了几十个小时，每次一玩就是五六个小时起步，还是很不错的游戏的，只不过在后期感受到了乏味，没能成为艾尔登之王。</p>
+<h3 id="做饭"><a href="#做饭" class="headerlink" title="做饭"></a>做饭</h3><p>要有生活气息，一定离不开自己做饭！今年自己和女朋友一起做了好多好多的菜！而且少有失败，哈哈哈女票直称我为厨房小天才哈哈（也不排除她是为了让我多做饭🐶）。自己做饭真的没那么难，而且味道也比大部分城中村的外卖好吃，就是收拾厨房、洗碗什么的太麻烦了，做完饭吃完饭收拾完基本晚上就啥都不想干了只想瘫着。不知道什么时候能买个洗碗机呀。</p>
+<img src=https://cdn-us.imgs.moe/2023/01/02/63b2c89a14f9a.jpg width=30% />
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="看书"><a href="#看书" class="headerlink" title="看书"></a>看书</h3><p>今年看书的目标算是达到了，一共看完了 13 本书。感觉自己看书的输入效率还不够。。。还需要继续学习😂</p>
+<ul>
+<li>浪潮之巅</li>
+<li>程序员的修炼之道</li>
+<li>小王子的领悟</li>
+<li>MySQL 是怎么运行的</li>
+<li>黑客与画家</li>
+<li>悉达多</li>
+<li>kubernetes in action</li>
+<li>异乡人</li>
+<li>沙发上的心理学</li>
+<li>数据生态：MySQL 复制技术与生产实践</li>
+<li>宇宙的最后三分钟</li>
+<li>shell 脚本基础教程</li>
+<li>枪炮、病菌与钢铁</li>
+</ul>
+<h3 id="爱情"><a href="#爱情" class="headerlink" title="爱情"></a>爱情</h3><p>今年是和我女朋友（以后就叫她小懒虫吧！）在一起的第一年～算是收获了梦想中甜蜜的爱情了（痴汉笑😊）。这一年我们先是度过了恋爱中最难熬的异地恋！最长有三个月的时间没有见面，可能以后都不会再有这么长时间不见面的机会了吧。</p>
+<p>今年和小懒虫度过了超级多的第一次。</p>
+<ul>
+<li>第一次收到新年礼物</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgloc.com/i/tN1da"><img src="https://i.328888.xyz/2023/01/03/tN1da.th.jpeg" alt="tN1da.th.jpeg"></a></p>
+<ul>
+<li><p>第一次一起弹钢琴</p>
+</li>
+<li><p>第一次一起旅游、看海、帆船、桨板、海边露营、日出</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgloc.com/i/tN9TV"><img src="https://i.328888.xyz/2023/01/03/tN9TV.th.jpeg" alt="tN9TV.th.jpeg"></a></p>
+<ul>
+<li>第一次恐怖密室</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgloc.com/i/tNLpb"><img src="https://i.328888.xyz/2023/01/03/tNLpb.th.png" alt="tNLpb.th.png"></a></p>
+<ul>
+<li>第一次通关游戏</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgloc.com/i/trjhJ"><img src="https://i.328888.xyz/2023/01/03/trjhJ.th.jpeg" alt="trjhJ.th.jpeg"></a></p>
+<ul>
+<li>第一次脱口秀</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgloc.com/i/try93"><img src="https://i.328888.xyz/2023/01/03/try93.th.jpeg" alt="try93.th.jpeg"></a></p>
+<h3 id="疫情"><a href="#疫情" class="headerlink" title="疫情"></a>疫情</h3><p>在 2022 年的年末，疫情终于算是“结束”了。。。在毕业前由于江苏教育局的政策「上海一天不解封，南京高校也不解封」，结果导致我们在南大被封了两个月！这让我们论文写完了，答辩完了也没有机会出校。这直接导致我在能毕业离校的第一时间离开了学校，并不带一点留恋。本来打算在南京好好玩一下的也没有时间了。异地恋的影响也在这两个月里达到了顶峰。。。真是太煎熬了。</p>
+<p>另外，从今年年底广州疫情开始，自己几乎就一直 remote 到了现在，完全改变了工作习惯。。。放开后也阳了一次，但还不算严重，也就烧了一天多，发烧的时候基本在睡觉，退烧后基本就没什么事了。</p>
+<p>我认为只要不再搞什么类似封城的事情，疫情就算是过去了。因为这是不可避免的事情呀，在读完《枪炮、病菌与钢铁》后知道，人类<strong>从来</strong>没有战胜过病毒。这是客观事实。一旦放开后，我们就再也回不去了，亦或者说我们瞬间就回到了过去。有病治病，挺好的。</p>
+<h2 id="2023"><a href="#2023" class="headerlink" title="2023"></a>2023</h2><p>2023 年要做些什么呢？</p>
+<ul>
+<li>工作上，think more and do more</li>
+<li>读书和做饭的习惯能继续保持</li>
+<li>计划中的锻炼别拉下了，多跑步，参加一场半马</li>
+<li>楼下就有网球场，大学学的网球一定要捡起来玩玩</li>
+<li>去更多地方旅行（哈尔滨、潮汕</li>
+<li>换个好点的 launchpad 继续玩玩</li>
+</ul>
+<p>总之，2022 还行，2023 继续加油💪</p>
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/12/31/hello-world/" data-id="clcbk94r90000tt7u8zz80ufa" class="article-share-link">Share</a>
-      
-      
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="okJiang"
+      src="/images/avatar.JPG">
+  <p class="site-author-name" itemprop="name">okJiang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">okJiang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">3k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">6 分钟</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
     </footer>
   </div>
+
   
-</article>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
 
 
   
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+
 
   
-    
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
 
   
-    
+
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li></ul>
+
+
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/12/31/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
 </body>
 </html>

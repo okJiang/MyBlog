@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
+title: okJiang
+subtitle: 自娱自乐
 description: ''
 keywords:
-author: John Doe
-language: en
-timezone: ''
+author: okJiang
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -105,3 +105,27 @@ deploy:
   type: git
   repo: git@github.com:okJiang/okJiang.github.io.git
   branch: main
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+  exclude_codeblock: false
+  awl: 3
+  wpm: 200
+  suffix: "mins."
+
+feed:
+  limit: 20
+  type: atom
+  path: atom.xml
+  order_by: -date
+  content_limit: 140
+  autodiscovery: true
