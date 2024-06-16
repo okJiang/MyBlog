@@ -1,0 +1,299 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>DM 数据旅程 02：分库分表悲观协调——02Lock -&gt; Resolve Lock | okJiang</title><meta name="author" content="okJiang"><meta name="copyright" content="okJiang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、概述介绍了与悲观协调有关的各个数据结构之后，接下来将介绍一个 DM 系统从接受到第一条分表 DDL 开始，到所有该 DDL 对应的 Lock resolved 的全过程。  本节内容皆参考 DM v6.0，对现在而言，有可能已过时，欢迎大家提出意见～  二、Overview假设现在起了 master 和两个 Worker，两个 Worker 分别绑定两个 Source（s1，s2），每个 So">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DM 数据旅程 02：分库分表悲观协调——02Lock -&gt; Resolve Lock">
+<meta property="og:url" content="http://example.com/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9402Lock-Resolve-Lock/index.html">
+<meta property="og:site_name" content="okJiang">
+<meta property="og:description" content="一、概述介绍了与悲观协调有关的各个数据结构之后，接下来将介绍一个 DM 系统从接受到第一条分表 DDL 开始，到所有该 DDL 对应的 Lock resolved 的全过程。  本节内容皆参考 DM v6.0，对现在而言，有可能已过时，欢迎大家提出意见～  二、Overview假设现在起了 master 和两个 Worker，两个 Worker 分别绑定两个 Source（s1，s2），每个 So">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283666.png">
+<meta property="article:published_time" content="2023-01-02T19:58:33.000Z">
+<meta property="article:modified_time" content="2024-06-16T06:59:24.542Z">
+<meta property="article:author" content="okJiang">
+<meta property="article:tag" content="DM">
+<meta property="article:tag" content="源码阅读">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283666.png"><link rel="shortcut icon" href="/img/avatar.png"><link rel="canonical" href="http://example.com/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9402Lock-Resolve-Lock/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: okJiang","link":"链接: ","source":"来源: okJiang","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'DM 数据旅程 02：分库分表悲观协调——02Lock -> Resolve Lock',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-16 14:59:24'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="okJiang" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283666.png')"><nav id="nav"><span id="blog-info"><a href="/" title="okJiang"><span class="site-name">okJiang</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">DM 数据旅程 02：分库分表悲观协调——02Lock -&gt; Resolve Lock</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-02T19:58:33.000Z" title="发表于 2023-01-03 03:58:33">2023-01-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-16T06:59:24.542Z" title="更新于 2024-06-16 14:59:24">2024-06-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B/">DM 数据旅程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="DM 数据旅程 02：分库分表悲观协调——02Lock -&gt; Resolve Lock"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>介绍了与悲观协调有关的各个数据结构之后，接下来将介绍一个 DM 系统从接受到第一条分表 DDL 开始，到所有该 DDL 对应的 Lock resolved 的全过程。</p>
+<blockquote>
+<p>本节内容皆参考 <a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/tree/release-6.0">DM v6.0</a>，对现在而言，有可能已过时，欢迎大家提出意见～</p>
+</blockquote>
+<h1 id="二、Overview"><a href="#二、Overview" class="headerlink" title="二、Overview"></a>二、Overview</h1><p>假设现在起了 master 和两个 Worker，两个 Worker 分别绑定两个 Source（s1，s2），每个 Source 有两个分表（t1，t2），这四个表会 route 到一个 target table（tarTbl）中。在 DDL 到来之前，两个 worker 会创建好 ShardingGroupKeeper，里面只有一个 target table，两个 source table。</p>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283187.png"></p>
+<p>两个 Worker 先后收到两个 Source 四个分表的同一条 DDL，表示为：</p>
+<ul>
+<li>DDL1：表示对 s1.t1 的 DDL。</li>
+<li>DDL2：表示对 s2.t1 的 DDL。</li>
+<li>DDL3：表示对 s1.t2 的 DDL。</li>
+<li>DDL4：表示对 s2.t2 的 DDL。</li>
+</ul>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283666.png"></p>
+<h1 id="三、具体过程"><a href="#三、具体过程" class="headerlink" title="三、具体过程"></a>三、具体过程</h1><blockquote>
+<p>本小节 worker 对 DDL 的处理从 <a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2853">handleQueryEventPessimistic</a> 开始，如果不知道在此之前的 DDL 做过哪些处理，请期待后续文章😁</p>
+</blockquote>
+<p>接下来将对上图中的步骤一一介绍</p>
+<h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><ol>
+<li>worker1 收到来自 source1 的 DDL1，会直接 <a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2883">TrySync</a>，这里返回了一大堆的参数，其实有用的就只是 <code>synced</code>，简单来说，里面只做了一件事：<a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/sharding_group.go#L215">AddItem</a>。下面详细介绍一下 TrySync</li>
+</ol>
+<blockquote>
+<p>本节，假设该 DDL 不是 CreateTableStmt，如果是的话，也很简单，每次都是 remain &lt;=0，synced = true，但是只有第一次发送该 create table 的 worker 会 syncDDL。</p>
+</blockquote>
+<h3 id="TrySync"><a href="#TrySync" class="headerlink" title="TrySync"></a>TrySync</h3><p>想要知道 worker 在悲观协调的时候做了什么，必须要搞懂 TrySync 是怎么运作的。在此之前，我们来重新理解一下 ShardingGroupKeeper：</p>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283187.png"></p>
+<p>单独拿出一个 ShardingGroup 举例（颜色代表 DDL 的种类）：</p>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>worker 收到了以下 DDL</p>
+<ul>
+<li>依次收到了 table1 橙色、黄色、绿色三条 DDL</li>
+<li>收到了 table2 橙色</li>
+<li>这个时候 <code>activeIdx = 0</code>，<code>remain = 1</code>，因为只有 table3 没有收到 active DDL 了</li>
+</ul>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283679.png"></p>
+<ul>
+<li>如果在这个时候收到了 table3 橙色 DDL，<code>remain = 0</code>，处理了这条 DDL 之后，<code>active ++</code></li>
+</ul>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/image-1672713793518.png" alt="image.png"></p>
+<ul>
+<li>如果这个时候收到 table2 绿色 DDL，则会<a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/sharding-meta/shardmeta.go#L197-L199">报错</a>，悲观协调要求同一个 source table 中 DDL 必须有序</li>
+</ul>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283186.png"></p>
+<ul>
+<li>如果 group 中所有的 DDL 都 resolved 了。则会<a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/sharding-meta/shardmeta.go#L243-L246">重置</a>一下 meta</li>
+</ul>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283692.png"></p>
+<p>总结：<a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/sharding_group.go#L215">AddItem</a> 就是上面图中把 DDLItem 放进 ShardingSequence 的过程</p>
+<h2 id="Step-2-与-Step-1-相同"><a href="#Step-2-与-Step-1-相同" class="headerlink" title="Step 2 与 Step 1 相同"></a>Step 2 与 Step 1 相同</h2><h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><p>由于 tarTbl 只有两个 source table：s1.t1 和 s1.t2，这时 <a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2883">TrySync</a> 后，<a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2948">synced = true</a>，说明该 worker ready</p>
+<h2 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h2><h3 id="worker1"><a href="#worker1" class="headerlink" title="worker1"></a>worker1</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2985">PutInfo</a>：发送 ready info 给 master（后面会详细介绍这个函数）</li>
+<li>之后会被阻塞，<a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2992">等待 master 发送 operation</a>。</li>
+</ul>
+<h3 id="Master"><a href="#Master" class="headerlink" title="Master"></a>Master</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L177">watchInfoPut</a>：成功监听到了</li>
+<li>handleInfoPut：master 也开始 <a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L474">TrySync</a>，master 的 TrySync 相比 worker 中的要简单很多，每一个 Info 直接相当于该 source/worker 已 ready，所以直接统计是否所有 ready 即可</li>
+<li>由于这里是第一个 worker 发 info 给 master，所以需要<a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/pkg/shardddl/pessimism/keeper.go#L49">新建 Lock</a>，新建 Lock 过程中会获取该 task 所有的 source，并存到 lock 中，这样就知道还有多少 source 没 ready。显然还有 source2 没 ready。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L481-L485">继续等待</a></li>
+</ul>
+<h2 id="Step-5-与-Step-3-相同"><a href="#Step-5-与-Step-3-相同" class="headerlink" title="Step 5 与 Step 3 相同"></a>Step 5 与 Step 3 相同</h2><h2 id="Step-6"><a href="#Step-6" class="headerlink" title="Step 6"></a>Step 6</h2><ul>
+<li>前面与 Step 4 相同，但是这时所有 source 都 ready 了，<a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L486">synced = true</a></li>
+</ul>
+<h2 id="Step-7"><a href="#Step-7" class="headerlink" title="Step 7"></a>Step 7</h2><h3 id="master"><a href="#master" class="headerlink" title="master"></a>master</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L599">putOpForOwner</a>：发送 <a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L604">exec</a> operation to owner(worker1)</li>
+</ul>
+<h3 id="Worker1"><a href="#Worker1" class="headerlink" title="Worker1"></a>Worker1</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/shardddl/pessimist.go#L120-L124">得到 master 的 exec operation</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L3042-L3043">NewDDLJob</a> 并 handle</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L1057">addJob</a>：发送 job 给 DDLJobCh</p>
+</li>
+<li><p>syncDDL：之前 worker 起的协程接受到该 job</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L1324">拿到刚刚得到的 operation</a>，并且不会被跳过，因为 ignore = false</li>
+</ul>
+</li>
+</ul>
+<h2 id="Step-8"><a href="#Step-8" class="headerlink" title="Step 8"></a>Step 8</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L1344">同步到下游</a></li>
+</ul>
+<h2 id="Step-9"><a href="#Step-9" class="headerlink" title="Step 9"></a>Step 9</h2><h3 id="Worker1-1"><a href="#Worker1-1" class="headerlink" title="Worker1"></a>Worker1</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L1384">DoneOperationDeleteInfo</a>：发送 done operation 给 master 并删除 info</li>
+</ul>
+<h2 id="Step-10"><a href="#Step-10" class="headerlink" title="Step 10"></a>Step 10</h2><h3 id="Master-1"><a href="#Master-1" class="headerlink" title="Master"></a>Master</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L509">接受 done operation</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L529">markDone</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L553">putOpsForNonOwner</a>：给其他所有 non-owner 发送 skip info（skip done 是为了防止把 done 覆盖掉）</li>
+</ul>
+<h3 id="Worker2"><a href="#Worker2" class="headerlink" title="Worker2"></a>Worker2</h3><ul>
+<li>接受到了 no exec(skip) 的 operation，和 Step 7 类似，但是在 syncDDL 的时候会<a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L1325-L1328">被 skip</a></li>
+</ul>
+<h2 id="Step-11-和-Step-9-相同"><a href="#Step-11-和-Step-9-相同" class="headerlink" title="Step 11 和 Step 9 相同"></a>Step 11 和 Step 9 相同</h2><h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>本节介绍了在悲观协调过程中，遇到第一条 DDL 语句，生成 Lock，到收到所有 DDL 语句，Lock 解除的过程。</p>
+<p>经过本节的学习，我们已经完全学会了 DM 悲观协调的过程。是不是也没那么复杂😏，但是在这个过程中，我们只知道 DDL 的处理方式，这个过程中的 DML 会怎么办呢？下一章揭晓。</p>
+<h1 id="五、疑似-bug"><a href="#五、疑似-bug" class="headerlink" title="五、疑似 bug"></a>五、疑似 bug</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L552-L559">initShardingGroups</a> 中对 ShardingGroup.sources 进行了初始化，这里包含了该 targetTable 对应的所有 sourceTables</li>
+<li>在 <a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2883">TrySync</a> 的时候，却使用第一个 <code>sourceTable[0]</code>，来标记所有的 <code>DDL[]</code>，如果 <code>len(DDL[]) != 1</code>，则 remain 永远不可能为 0。因为 sourceTables 来源于 ddlInfo。而 DDLInfo 只存了<a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2738-L2743">第一条 ddl 的 ddlInfo</a>，实际上对于每一个 Split 之后的 DDL，都会 <a target="_blank" rel="noopener" href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2694">genDDLInfo</a>。</li>
+<li>但是奇怪的是，代码中标注了<a target="_blank" rel="noopener" href="http://errsyncerunitddlonmultipletable/">不支持 multi-table DDL</a>，这个 error 在 pessimist/optimist mode 中都用到了。但是在现在看 pessimist 代码中，又看到其为 multi-table DDL 实现了部分相关逻辑。。。<strong>有毒</strong></li>
+<li>比如：</li>
+</ol>
+<ul>
+<li>https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2957-L2960</li>
+<li>https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/sharding-meta/shardmeta.go#L35</li>
+<li>。。。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">okJiang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9402Lock-Resolve-Lock/">http://example.com/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9402Lock-Resolve-Lock/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">okJiang</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/DM/">DM</a><a class="post-meta__tags" href="/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/">源码阅读</a></div><div class="post_share"><div class="social-share" data-image="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283666.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9403reSync/" title="DM 数据旅程 02：分库分表悲观协调——03reSync"><img class="cover" src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672404522042.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">DM 数据旅程 02：分库分表悲观协调——03reSync</div></div></a></div><div class="next-post pull-right"><a href="/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9401%E5%87%86%E5%A4%87%E8%BF%87%E7%A8%8B/" title="DM 数据旅程 02：分库分表悲观协调——01准备过程"><img class="cover" src="/img/category/dm_shard.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">DM 数据旅程 02：分库分表悲观协调——01准备过程</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-00%EF%BC%9A%E5%BA%8F%E8%A8%80/" title="DM 数据旅程 00：序言"><img class="cover" src="/img/category/dm_repo.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-03</div><div class="title">DM 数据旅程 00：序言</div></div></a></div><div><a href="/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-01%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1-start-task/" title="DM 数据旅程 01：第一次 start task"><img class="cover" src="/img/category/first_dm_job.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-03</div><div class="title">DM 数据旅程 01：第一次 start task</div></div></a></div><div><a href="/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9403reSync/" title="DM 数据旅程 02：分库分表悲观协调——03reSync"><img class="cover" src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672404522042.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-03</div><div class="title">DM 数据旅程 02：分库分表悲观协调——03reSync</div></div></a></div><div><a href="/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9401%E5%87%86%E5%A4%87%E8%BF%87%E7%A8%8B/" title="DM 数据旅程 02：分库分表悲观协调——01准备过程"><img class="cover" src="/img/category/dm_shard.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-03</div><div class="title">DM 数据旅程 02：分库分表悲观协调——01准备过程</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">okJiang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/okJiang"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/okJiang" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:okenJiang@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Overview"><span class="toc-number">2.</span> <span class="toc-text">二、Overview</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%85%B7%E4%BD%93%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">三、具体过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-1"><span class="toc-number">3.1.</span> <span class="toc-text">Step 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TrySync"><span class="toc-number">3.1.1.</span> <span class="toc-text">TrySync</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">Example</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-2-%E4%B8%8E-Step-1-%E7%9B%B8%E5%90%8C"><span class="toc-number">3.2.</span> <span class="toc-text">Step 2 与 Step 1 相同</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-3"><span class="toc-number">3.3.</span> <span class="toc-text">Step 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-4"><span class="toc-number">3.4.</span> <span class="toc-text">Step 4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#worker1"><span class="toc-number">3.4.1.</span> <span class="toc-text">worker1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Master"><span class="toc-number">3.4.2.</span> <span class="toc-text">Master</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-5-%E4%B8%8E-Step-3-%E7%9B%B8%E5%90%8C"><span class="toc-number">3.5.</span> <span class="toc-text">Step 5 与 Step 3 相同</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-6"><span class="toc-number">3.6.</span> <span class="toc-text">Step 6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-7"><span class="toc-number">3.7.</span> <span class="toc-text">Step 7</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#master"><span class="toc-number">3.7.1.</span> <span class="toc-text">master</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Worker1"><span class="toc-number">3.7.2.</span> <span class="toc-text">Worker1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-8"><span class="toc-number">3.8.</span> <span class="toc-text">Step 8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-9"><span class="toc-number">3.9.</span> <span class="toc-text">Step 9</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Worker1-1"><span class="toc-number">3.9.1.</span> <span class="toc-text">Worker1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-10"><span class="toc-number">3.10.</span> <span class="toc-text">Step 10</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Master-1"><span class="toc-number">3.10.1.</span> <span class="toc-text">Master</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Worker2"><span class="toc-number">3.10.2.</span> <span class="toc-text">Worker2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-11-%E5%92%8C-Step-9-%E7%9B%B8%E5%90%8C"><span class="toc-number">3.11.</span> <span class="toc-text">Step 11 和 Step 9 相同</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">四、总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E7%96%91%E4%BC%BC-bug"><span class="toc-number">5.</span> <span class="toc-text">五、疑似 bug</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9403reSync/" title="DM 数据旅程 02：分库分表悲观协调——03reSync"><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672404522042.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DM 数据旅程 02：分库分表悲观协调——03reSync"/></a><div class="content"><a class="title" href="/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9403reSync/" title="DM 数据旅程 02：分库分表悲观协调——03reSync">DM 数据旅程 02：分库分表悲观协调——03reSync</a><time datetime="2023-01-02T20:58:33.000Z" title="发表于 2023-01-03 04:58:33">2023-01-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9402Lock-Resolve-Lock/" title="DM 数据旅程 02：分库分表悲观协调——02Lock -&gt; Resolve Lock"><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283666.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DM 数据旅程 02：分库分表悲观协调——02Lock -&gt; Resolve Lock"/></a><div class="content"><a class="title" href="/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9402Lock-Resolve-Lock/" title="DM 数据旅程 02：分库分表悲观协调——02Lock -&gt; Resolve Lock">DM 数据旅程 02：分库分表悲观协调——02Lock -&gt; Resolve Lock</a><time datetime="2023-01-02T19:58:33.000Z" title="发表于 2023-01-03 03:58:33">2023-01-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9401%E5%87%86%E5%A4%87%E8%BF%87%E7%A8%8B/" title="DM 数据旅程 02：分库分表悲观协调——01准备过程"><img src="/img/category/dm_shard.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DM 数据旅程 02：分库分表悲观协调——01准备过程"/></a><div class="content"><a class="title" href="/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9401%E5%87%86%E5%A4%87%E8%BF%87%E7%A8%8B/" title="DM 数据旅程 02：分库分表悲观协调——01准备过程">DM 数据旅程 02：分库分表悲观协调——01准备过程</a><time datetime="2023-01-02T19:50:33.000Z" title="发表于 2023-01-03 03:50:33">2023-01-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By okJiang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Good luck, have fun!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><script>(() => {
+  const initGitalk = () => {
+    const gitalk = new Gitalk(Object.assign({
+      clientID: 'd0eb41321560dae0a183',
+      clientSecret: '24052834835075678f03f4ea2f9a897774660063',
+      repo: 'okjiang.github.io',
+      owner: 'okJiang',
+      admin: [''],
+      id: '849c37a98668924cbe379f8c626d3235',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async() => {
+    if (typeof Gitalk === 'function') initGitalk()
+    else {
+      await getCSS('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css')
+      await getScript('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js')
+      initGitalk()
+    }
+  }
+  
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

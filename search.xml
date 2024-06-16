@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>2022年终总结——幸运开心的一年</title>
+    <url>/2023/01/01/2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>第一次写年终总结呀，尝试记录一下。一年下来还真发生了不少事。看看自己有啥收获有啥成长。</p>
+<h2 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h2><p>先说说工作吧。从南大毕业后，我去了 PingCAP（贵司）工作，现在在贵司的 DM（Data Migration）团队工作，差不多就在数据导入、数据迁移以及其对应的云上版本这些地方搬砖。去年就有在贵司实习，主要在维护 DM，也就是怎么把一条 binlog 写到下游 TiDB 里面，和 MySQL binlog 打交道比较多。今年入职后，顺应公司的战略，主要在 tidbcloud.com 上 CRUD，帮助用户在 cloud 上导入或迁移数据，和 k8s、CRUD 以及用户体验打交道比较多。</p>
+<p>简单总结一下学到的东西吧，从实习到现在：</p>
+<ol>
+<li>单元测试、集成测试</li>
+<li>多线程代码</li>
+<li>review 代码</li>
+<li>写设计文档</li>
+<li>理解一个需求是任何工作的第一步</li>
+<li>对一个需求进行项目管理，以尽可能地按时交付（当然现在还做的不够好。。。）</li>
+<li>学习了 K8s/CRD/Operator/AWS/Pulumi 相关的知识，能看懂代码，并编写简单的代码</li>
+<li>更多地考虑用户体验</li>
+<li>。。</li>
+</ol>
+<p>再谈谈工作的感受。对于我这第一份正式的工作，我是非常满意我当前的团队和公司的。不论是公司还是团队内，大佬非常多，可以在他们身上学到很多东西。团队内的人大家实事求是、互相帮助，我是没有遇到什么尔虞我诈，为了利益起冲突的情况，很 nice！虽然很多人诟病贵司已经不是以前的贵司了，之前的工程师文化没有那么纯粹了，但我还是帮公司说句话。今年 2022 年的环境大家还是可以看得到的，同样以工程师文化著称的小马，已经把 22 届大部分的应届生裁掉了，我有同学就在被裁名单里。所以对于一个同样是应届生的我，我还是很佩服公司的战略和定力，以帮助公司继续生存下去，毕竟活下去才有未来。我知道这两者也并不是冲突的，但我还是庆幸公司能让我有一个地方学习和成长。当然，大家也都会希望自己的公司能越来越好！</p>
+<p>记录一下：今年 1 月份全组人员齐聚北京团（mian）建（ji），第一次正式见到了来自成都、北京、杭州、上海的各位大佬，也跟着 mentor 没羞没臊地蹭吃蹭喝玩了两天哈哈。不得不说，太爽了哈哈哈🐶。</p>
+<h2 id="学生生涯"><a href="#学生生涯" class="headerlink" title="学生生涯"></a>学生生涯</h2><p>今年终于从硕士毕业了。坦诚地对硕士这三年做个简短的总结吧。自己在三年中几乎没有任何的成果，连一篇论文都没发过，在科研这条路上，我也算的上是彻底失败了。不过这三年比较幸运的是，我在研一下就意识到了自己不适合走科研这条路，所以花了很多时间在思考和实践自己以后要做什么这个问题上。也找到了自认为短中期内发展还不错的数据库这条道路。</p>
+<blockquote>
+<p>在读书期间，经常和同学调侃，读研最大的作用，就是发现了读研没用。哈哈哈，这句话可能有点过，但也是只有读研后，才能理解很多大佬说的，「国内的研究有些浮躁」中<strong>浮躁</strong>的含义吧（叹息）</p>
+</blockquote>
+<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><p>在毕业后，正式开启了我自己的生活。这一次和我之前的实习都不一样，我第一次拒绝了合租，选择了一个人整租一个小区里的一室一厅。在省钱和生活质量中选择了后者。当时在来广州之前就疯狂地看房，幻想着自己一个人自由的生活哈哈哈。来了广州之后就疯狂地找房子，一室一厅的小区房实在是太少了🤮。我遇到一个 2500/月 60 平的房子，下午 2 点看完饭，下午 4 点就被租出去了！就是被我后面一个看房的人租走了。。。这效率简直了。最后租到了一间 3000 出头的一室一厅，房东非常 nice，给配了新的马桶、电热水器、空调、抽油烟机和灶台，甚至还重新装修了厨房！虽然还有不足的地方，但我已经非常满足了！</p>
+<h3 id="添置新物件"><a href="#添置新物件" class="headerlink" title="添置新物件"></a>添置新物件</h3><h4 id="大桌子✅"><a href="#大桌子✅" class="headerlink" title="大桌子✅"></a>大桌子✅</h4><p>在自己租了房子之后，必然也是要整一个正经的小书桌的啦。在闲鱼上蹲了好几天，中间还去旁边的二手市场看了，最后花 220 蹲到了这张 160✖️70 的桌子（货拉拉都花了 100+ 😂）</p>
+<p><a href="https://imgloc.com/i/tk3cN"><img src="https://i.328888.xyz/2023/01/02/tk3cN.th.jpeg" alt="tk3cN.th.jpeg"></a></p>
+<h4 id="洞洞板✅"><a href="#洞洞板✅" class="headerlink" title="洞洞板✅"></a>洞洞板✅</h4><p>看 B 站视频还看到了这种立式的洞洞板，想到出租屋里也完全没有书架、小物件的收纳什么的，就整了一个。还行哈，比光秃秃的好多了。</p>
+<p><a href="https://imgloc.com/i/tkHFX"><img src="https://i.328888.xyz/2023/01/02/tkHFX.th.jpeg" alt="tkHFX.th.jpeg"></a></p>
+<h4 id="人体工学椅✅"><a href="#人体工学椅✅" class="headerlink" title="人体工学椅✅"></a>人体工学椅✅</h4><p>毕竟工作需要，立马也整了个好椅子，可以用很久了</p>
+<p><a href="https://imgloc.com/i/t0jdv"><img src="https://i.328888.xyz/2023/01/02/t0jdv.th.jpeg" alt="t0jdv.th.jpeg"></a></p>
+<h4 id="牙套✅"><a href="#牙套✅" class="headerlink" title="牙套✅"></a>牙套✅</h4><p>从很多年前自己就觉得自己的牙齿不齐，想要做牙齿矫正，但无奈因为钱或者长住地不稳定等原因，一直没开始。所以在广州安顿下来之后，立马开始了牙齿矫正的进程。上下左右拔了 4 颗牙！妈耶，疼死我了。</p>
+<h4 id="打击垫✅"><a href="#打击垫✅" class="headerlink" title="打击垫✅"></a>打击垫✅</h4><p>我自己对音乐也一直挺感兴趣的，哈哈就想做点音乐相关的爱好。之前有关注一个绝地的主播，他玩的打击垫超酷！现在有自己的空间和生活了，就整了一个二手的入门款。</p>
+<p><a href="https://imgloc.com/i/twO4o"><img src="https://i.328888.xyz/2023/01/02/twO4o.th.jpeg" alt="twO4o.th.jpeg"></a></p>
+<p>但是非常可惜，在练完入门曲 <a href="https://www.bilibili.com/video/BV1bv4y1B7RL/?spm_id_from=333.999.0.0&vd_source=1d41e3899bfb8af8d65144aad99bbde1">Luz letter</a> 后，在另外挑了一首<a href="https://www.bilibili.com/video/BV1q8411E7ts/?spm_id_from=333.999.0.0&vd_source=1d41e3899bfb8af8d65144aad99bbde1">进阶的曲子</a>练习过程中就发现了问题——灯光跟不上节奏。。。这个入门款的灯光频率太低了，尝试了很多次之后还是放弃了继续在这款上面继续练，然后荒废到现在（哎，可惜。</p>
+<h4 id="PS5-大电视✅"><a href="#PS5-大电视✅" class="headerlink" title="PS5/大电视✅"></a>PS5/大电视✅</h4><p>在双十一的时候，收了一个二手的 PS5，还配了一个大电视！这个小出租屋也终于可以看电视了。</p>
+<p><img src="https://i.328888.xyz/2023/01/02/t0Law.jpeg" alt="t0Law.jpeg"></p>
+<p>顺带评价一下老头环吧，在 PS5 上玩的第一个游戏。之前也有玩过黑魂 3，1）所以并没有第一次玩魂类游戏那种冲击了，而且老头环的难度系数相比黑魂确实低了不少，转角杀少了特别多，所以老玩家在转角处回头的时候经常“失望”哈哈哈。2）还有一个点是堆料太严重了叭，重复的遗迹，重复的 boss，重复的墓地，单一的小怪，散落在交界地的各处，完全没有什么动力去一一扫图。。。3）对于剧情，我还是知道魂类游戏的套路的——剧情都散落在各个道具上，但我真的做不到全搜集呀！😭，而且由于地图太大，剧情太散，我真的记不住各个支线呀！4）对于开放世界，由于也玩过塞尔达这种神作，只能说宫崎英高把魂元素塞到了一个开放世界中，至于这个开放世界它“开放”吗？这管我啥事。</p>
+<p>哈哈哈，吐槽完了，但还是要说我玩了几十个小时，每次一玩就是五六个小时起步，还是很不错的游戏的，只不过在后期感受到了乏味，没能成为艾尔登之王。</p>
+<h3 id="做饭"><a href="#做饭" class="headerlink" title="做饭"></a>做饭</h3><p>要有生活气息，一定离不开自己做饭！今年自己和女朋友一起做了好多好多的菜！而且少有失败，哈哈哈女票直称我为厨房小天才哈哈（也不排除她是为了让我多做饭🐶）。自己做饭真的没那么难，而且味道也比大部分城中村的外卖好吃，就是收拾厨房、洗碗什么的太麻烦了，做完饭吃完饭收拾完基本晚上就啥都不想干了只想瘫着。不知道什么时候能买个洗碗机呀。</p>
+<img src=https://cdn-us.imgs.moe/2023/01/02/63b2c89a14f9a.jpg width=30% />
+
+<h3 id="看书"><a href="#看书" class="headerlink" title="看书"></a>看书</h3><p>今年看书的目标算是达到了，一共看完了 13 本书。感觉自己看书的输入效率还不够。。。还需要继续学习😂</p>
+<ul>
+<li>浪潮之巅</li>
+<li>程序员的修炼之道</li>
+<li>小王子的领悟</li>
+<li>MySQL 是怎么运行的</li>
+<li>黑客与画家</li>
+<li>悉达多</li>
+<li>kubernetes in action</li>
+<li>异乡人</li>
+<li>沙发上的心理学</li>
+<li>数据生态：MySQL 复制技术与生产实践</li>
+<li>宇宙的最后三分钟</li>
+<li>shell 脚本基础教程</li>
+<li>枪炮、病菌与钢铁</li>
+</ul>
+<h3 id="爱情"><a href="#爱情" class="headerlink" title="爱情"></a>爱情</h3><p>今年是和我女朋友（以后就叫她小懒虫吧！）在一起的第一年～算是收获了梦想中甜蜜的爱情了（痴汉笑😊）。这一年我们先是度过了恋爱中最难熬的异地恋！最长有三个月的时间没有见面，可能以后都不会再有这么长时间不见面的机会了吧。</p>
+<p>今年和小懒虫度过了超级多的第一次。</p>
+<ul>
+<li>第一次收到新年礼物</li>
+</ul>
+<p><a href="https://imgloc.com/i/tN1da"><img src="https://i.328888.xyz/2023/01/03/tN1da.th.jpeg" alt="tN1da.th.jpeg"></a></p>
+<ul>
+<li><p>第一次一起弹钢琴</p>
+</li>
+<li><p>第一次一起旅游、看海、帆船、桨板、海边露营、日出</p>
+</li>
+</ul>
+<p><a href="https://imgloc.com/i/tN9TV"><img src="https://i.328888.xyz/2023/01/03/tN9TV.th.jpeg" alt="tN9TV.th.jpeg"></a></p>
+<ul>
+<li>第一次恐怖密室</li>
+</ul>
+<p><a href="https://imgloc.com/i/tNLpb"><img src="https://i.328888.xyz/2023/01/03/tNLpb.th.png" alt="tNLpb.th.png"></a></p>
+<ul>
+<li>第一次通关游戏</li>
+</ul>
+<p><a href="https://imgloc.com/i/trjhJ"><img src="https://i.328888.xyz/2023/01/03/trjhJ.th.jpeg" alt="trjhJ.th.jpeg"></a></p>
+<ul>
+<li>第一次脱口秀</li>
+</ul>
+<p><a href="https://imgloc.com/i/try93"><img src="https://i.328888.xyz/2023/01/03/try93.th.jpeg" alt="try93.th.jpeg"></a></p>
+<h3 id="疫情"><a href="#疫情" class="headerlink" title="疫情"></a>疫情</h3><p>在 2022 年的年末，疫情终于算是“结束”了。。。在毕业前由于江苏教育局的政策「上海一天不解封，南京高校也不解封」，结果导致我们在南大被封了两个月！这让我们论文写完了，答辩完了也没有机会出校。这直接导致我在能毕业离校的第一时间离开了学校，并不带一点留恋。本来打算在南京好好玩一下的也没有时间了。异地恋的影响也在这两个月里达到了顶峰。。。真是太煎熬了。</p>
+<p>另外，从今年年底广州疫情开始，自己几乎就一直 remote 到了现在，完全改变了工作习惯。。。放开后也阳了一次，但还不算严重，也就烧了一天多，发烧的时候基本在睡觉，退烧后基本就没什么事了。</p>
+<p>我认为只要不再搞什么类似封城的事情，疫情就算是过去了。因为这是不可避免的事情呀，在读完《枪炮、病菌与钢铁》后知道，人类<strong>从来</strong>没有战胜过病毒。这是客观事实。一旦放开后，我们就再也回不去了，亦或者说我们瞬间就回到了过去。有病治病，挺好的。</p>
+<h2 id="2023"><a href="#2023" class="headerlink" title="2023"></a>2023</h2><p>2023 年要做些什么呢？</p>
+<ul>
+<li>工作上，think more and do more</li>
+<li>读书和做饭的习惯能继续保持</li>
+<li>计划中的锻炼别拉下了，多跑步，参加一场半马</li>
+<li>楼下就有网球场，大学学的网球一定要捡起来玩玩</li>
+<li>去更多地方旅行（哈尔滨、潮汕</li>
+<li>换个好点的 launchpad 继续玩玩</li>
+</ul>
+<p>总之，2022 还行，2023 继续加油💪</p>
+]]></content>
+      <categories>
+        <category>年终总结</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>工作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DM 数据旅程 00：序言</title>
+    <url>/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-00%EF%BC%9A%E5%BA%8F%E8%A8%80/</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在此之前已经有官方很多关于 DM 的优秀文章了，比如</p>
+<ul>
+<li><a href="https://pingcap.com/zh/blog/tidb-ecosystem-tools-3">TiDB Ecosystem Tools 原理解读系列（三）TiDB Data Migration 架构设计与实现原理</a></li>
+<li><a href="https://pingcap.com/zh/blog?tag=DM%20%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB">DM 源码解读</a></li>
+</ul>
+<p>这些文章从原理方面非常详尽地介绍了 DM 的相关功能，是非常好的学习资料。但是</p>
+<ul>
+<li>它讲述的内容跨度较大，对读者有一定的门槛，<a href="https://pingcap.com/zh/blog/dm-source-code-reading-1#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86">DM 源码阅读系列文章（一）序：背景知识</a></li>
+<li>编辑时间太过久远，已经过去两年多了。DM 新增了一些新特性，对很多旧功能也进行了更新优化。所以原文中有很多内容已经过时（但大部分仍有参考价值）。例如：<a href="https://github.com/pingcap/dm/pull/540">DM 使用 Dumpling 替换了 MyDumper</a>，<a href="https://github.com/pingcap/dm/pull/568">新增乐观模式</a>等等。</li>
+</ul>
+<p>而外部的文章则大部分集中在 DM 的使用上而不是实现上。</p>
+<p>基于此，我想开一个坑《DM 数据旅程系列》，每一篇文章将以一个个小功能为线索，带大家理解 DM 中的各种实现。如果要讲的功能太大，也会拆分成小模块放出。每一步都会尽量放出 GitHub 地址，方便大家跟踪学习～</p>
+<blockquote>
+<p>数据旅程出自于龙少 PPT 中提到的用户旅程和数据旅程，指我们可以通过数据（字节）传输的途径。在看一段代码时，我们可以思考这个字节是从哪里来的，到哪里去，作用是什么，通过理解数据旅程来理解整个产品它的深层原理，并且可以通过改变数据规模（提升/降低数据数量级）和场景（不同的时间不同的位置）来理解产品的缺点（bug）。</p>
+</blockquote>
+<blockquote>
+<p>以上都是个人拙见（废话），欢迎提意见～</p>
+</blockquote>
+<p>当然，现在的 DM 正在飞速的发展迭代中，本系列的内容也可能马上就会过时，现在是 2021 年 10 月 31 日，本系列文章预计将会覆盖 DM v5.3.0-vx.x.x 的代码逻辑。</p>
+<p>如果认为文章中有任何可以改进的地方， 欢迎大家提出自己的想法。同样地，因为 DM 还在快速迭代，还有很多地方都有改进的地方，如果大家对代码实现有任何疑问，也都可以去 repo 中直接提 issue。</p>
+<h1 id="读者要求"><a href="#读者要求" class="headerlink" title="读者要求"></a>读者要求</h1><ul>
+<li>能看懂 Golang 语法</li>
+<li>了解 grpc、etcd</li>
+<li>计划章节</li>
+<li>Start task</li>
+<li>Stop task</li>
+<li>Pause task</li>
+<li>Resume task</li>
+<li>Full mode（dumpling）</li>
+<li>Incremental mode（syncer）</li>
+<li>Block-allow list</li>
+<li>Binlog-filter</li>
+<li>Enable relay log</li>
+<li>Permistic sharding ddl</li>
+<li>Optimistic sharding ddl</li>
+<li>。。。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>DM 数据旅程</category>
+      </categories>
+      <tags>
+        <tag>DM</tag>
+        <tag>源码阅读</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DM 数据旅程 01：第一次 start task</title>
+    <url>/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-01%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1-start-task/</url>
+    <content><![CDATA[<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>本文以 start task 为目的，带着读者从 0 到 1 启动一个数据迁移任务，旨在让读者了解到最基础的 DM 逻辑。本文将直接参照集成测试 <a href="https://github.com/pingcap/dm/blob/master/tests/start_task/run.sh#L27-L36">start_task</a> 的过程，从以下几个方面展开：</p>
+<ol>
+<li>Start dm-master</li>
+<li>Start dm-worker</li>
+<li>绑定 source 和 dm-worker</li>
+<li>Start task</li>
+</ol>
+<blockquote>
+<p>注：为了专注于我们的目的（start task），本文不会对无关代码进行解读</p>
+</blockquote>
+<blockquote>
+<p>大家可使用 <a href="https://pingcap.feishu.cn/mindnotes/bmncnqlO5BCrkgxFqabTLaz6EQh#mindmap">start/stop 流程</a> 辅助阅读</p>
+<p>由于写这篇的文章的时间是 2021 年 12 月份，所以所有的链接都是原 DM repo 的😂</p>
+</blockquote>
+<h1 id="二、start-dm-master"><a href="#二、start-dm-master" class="headerlink" title="二、start dm-master"></a>二、start dm-master</h1><ol>
+<li><a href="https://github.com/pingcap/dm/blob/master/tests/start_task/run.sh#L27">./dm-master</a>（in <a href="https://github.com/pingcap/dm/blob/master/tests/_utils/run_dm_master">run_dm_master</a>） 启动二进制文件，即调用 <a href="https://github.com/pingcap/dm/blob/master/cmd/dm-master/main.go#L35">main 函数</a>，其中 <a href="https://github.com/pingcap/dm/blob/master/cmd/dm-master/main.go#L69">master-server start</a></li>
+<li><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/server.go#L232">go electionNotify</a>：这个是为了<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/election.go#L55">等待 </a><code>etcd election</code><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/election.go#L55"> 成功</a>，并在其成功后做⬇️</li>
+</ol>
+<blockquote>
+<p>DM master 中内嵌了一个 <a href="https://etcd.io/">etcd</a>，用于存储各种元数据，并且借此保证 DM master 的高可用。后面非常多的数据存储都会用到 etcd。</p>
+</blockquote>
+<ol start="3">
+<li><p><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/election.go#L71">startLeaderComponent</a>，其中我们这次只需要关注 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/election.go#L173">s.scheduler.Start</a> 中的<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L243">go observeWorkerEvent</a>，主要分为两部分</p>
+<ol>
+<li><p><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L1617">go WatchWorkerEvent</a>：该函数通过 etcd client 监听<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/pkg/ha/keepalive.go#L198">是否有 workerEvent 出现</a></p>
+</li>
+<li><p><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L1619">handleWorkerEv</a>：有 workerEvent 出现时，handle it</p>
+<ol>
+<li><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L1580">handleWorkerOffline</a></li>
+<li><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L1582">handleWorkerOnline</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>这个时候，dm-master 等待 workerEvent 到来</p>
+</li>
+</ol>
+<h1 id="三、start-dm-worker"><a href="#三、start-dm-worker" class="headerlink" title="三、start dm-worker"></a>三、start dm-worker</h1><ol>
+<li><p><a href="https://github.com/pingcap/dm/blob/master/tests/start_task/run.sh#L29">./dm-worker</a>（in <a href="https://github.com/pingcap/dm/blob/master/tests/_utils/run_dm_worker">run_dm_worker</a>）启动二进制文件，即调用 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/cmd/dm-worker/main.go">main 函数</a>，其中<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/cmd/dm-worker/main.go#L89"> worker-server start</a></p>
+</li>
+<li><p><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/cmd/dm-worker/main.go#L78">JoinMaster</a>：先告诉 master，我来了！</p>
+<ol>
+<li>worker 先在这 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/join.go#L72">RegisterWorker</a>，然后会触发 master 调用 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/server.go#L298">RegisterWorker</a></li>
+<li>Master 会调用 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/server.go#L308">AddWorker</a>，然后 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L907">PutWorkerInfo</a>，把相应的 key-value <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/pkg/ha/worker.go#L69">写到 etcd</a> 中</li>
+<li>可以看到写到 etcd 用的是 <code>clientv3.OpPut(key, value)</code>，也就是说 kv 要执行 put 操作</li>
+<li>之前的 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L1617">go WatchWorkerEvent</a> 中就监听到有事件来了，并且判断其为 <code>mvccpb.PUT</code><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/pkg/ha/keepalive.go#L224"> 类型</a>，event 处理之后会通过 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/pkg/ha/keepalive.go#L242">outCh</a> 传到 handleWorkerEv 中进行具体的<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L1582">上线处理</a></li>
+<li>刚上线的时候，就会去各种找 source 去 bound，但是现在我们还没有 create source，所以也找不到 source，暂时可以不关注这里</li>
+</ol>
+</li>
+<li><p>Start task 还需要 bound source，那 worker 首先要做的就是 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/server.go#L169">observeSourceBound</a>，这里同 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L243">observeWorkerEvent</a> 是类似的：</p>
+<ol>
+<li><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/server.go#L404">go WatchSourceBound</a>：通过 etcd client 监听<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/pkg/ha/bound.go#L265">是否有 sourceBound 出现</a></li>
+<li><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/server.go#L406">handleSourceBound</a>：上面监听到了之后，则 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/server.go#L582">operateSourceBound</a></li>
+</ol>
+</li>
+<li><p>接下来，dm-worker 等待 source bound</p>
+</li>
+</ol>
+<h1 id="四、operate-source-create"><a href="#四、operate-source-create" class="headerlink" title="四、operate-source create"></a>四、operate-source create</h1><blockquote>
+<p>DM 用的命令行工具是 <a href="https://github.com/spf13/cobra">cobra</a>，有兴趣的读者可深入了解一下</p>
+</blockquote>
+<ol>
+<li><p>命令行执行 <a href="https://github.com/pingcap/dm/blob/master/tests/start_task/run.sh#L34">operate-source create</a>（in <a href="https://github.com/pingcap/dm/blob/master/tests/_utils/test_prepare#L128-L136">test_prepare</a>），<code>operate-source</code> 这个命令在 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/ctl/ctl.go#L68">NewOperateSourceCmd</a> 注册，具体实现在 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/ctl/master/operate_source.go#L39">operateSourceFunc</a></p>
+</li>
+<li><p>读取到该命令后，开始<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/ctl/master/operate_source.go#L89">解析</a>第一个参数（即 <code>create</code>）并<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/ctl/master/operate_source.go#L47-L48">转换</a>，最后被<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/ctl/master/operate_source.go#L143-L152">打包送</a>到 master，开始执行 master 的 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/server.go#L1186">OperateSource</a> 函数</p>
+</li>
+<li><p>该函数中，master 会从命令行中给出的配置文件路径</p>
+<ol>
+<li><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/server.go#L1205">解析并调整</a> source config</li>
+<li><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/server.go#L1227">把 source cfg 也存到 etcd 里</a>，因为 worker 待会要用</li>
+<li><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L318-L319">Try to bound it to a free worker</a>：因为我们是第一次 start task，并且也没有开启 relay 功能（<a href="https://github.com/pingcap/dm/blob/master/tests/start_task/conf/source1.yaml#L4">test</a> 中是开启了，但本篇文章假设不开启），所以我们就只能 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L1904-L1915">bound a free worker</a> 了。</li>
+<li>最终，通过 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L1936">PutSourceBound</a>，把 SourceBound <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/pkg/ha/bound.go#L100">通过 etcd client 发送</a></li>
+</ol>
+</li>
+<li><p>发送之后，worker 就通过 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/server.go#L404">go WatchSourceBound</a> 监听到有 SourceBound 出现，然后进行 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/server.go#L582">operateSourceBound</a></p>
+<ol>
+<li>首先需要<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/server.go#L649">拿到 source cfg</a>，因为上面的操作都是在 master 执行的，worker 这里并没有 source cfg</li>
+<li>Source cfg 也是通过 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/pkg/ha/source.go#L83">etcd</a> 拿到的，正好上面存了</li>
+</ol>
+</li>
+<li><p>之后就可以<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/server.go#L658">开始 subtask 了吧</a>！</p>
+<ol>
+<li>但是并没有。。。我们还没开始 start task 呢！</li>
+<li>所以 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/source_worker.go#L396">fetchSubTasksAndAdjust</a> 并不能拿到 subtask。拿到是空的</li>
+</ol>
+</li>
+<li><p>那没办法了，继续<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/source_worker.go#L422">等</a>呗（又是同样的 watch/handle 机制）</p>
+<ol>
+<li><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/source_worker.go#L638">go WatchSubTaskStage</a></li>
+<li><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/source_worker.go#L640">handleSubTaskStage</a></li>
+</ol>
+</li>
+</ol>
+<h1 id="五、start-task"><a href="#五、start-task" class="headerlink" title="五、start-task"></a>五、start-task</h1><ol>
+<li><p>命令行执行 <a href="https://github.com/pingcap/dm/blob/master/tests/start_task/run.sh#L36">start-task</a>（in <a href="https://github.com/pingcap/dm/blob/master/tests/_utils/test_prepare#L53-L64">test_prepare</a>），<code>start-task</code> 命令的注册和实现参考 <code>operate-source</code>，最后执行 master 的 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/server.go#L404">StartTask</a> 函数</p>
+</li>
+<li><p>直接开始就 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/server.go#L426">generateSubTask</a>（<code>req.Task</code> 直接传递的就是解析好的 <code>task.yaml</code> 字符串，原来在命令的实现中就帮我们解析好啦）。简单的说，就是经过一些 adjust 和 check， 帮助我们生成了 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/config/subtask.go#L184">SubTask</a> struct</p>
+</li>
+<li><p>重点来了，<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/server.go#L489">AddSubTasks</a> -&gt; <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L727">NewSubTaskStage</a>，subTask 终于创建好了，stage=running；再 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/master/scheduler/scheduler.go#L739">put</a> 进 etcd，完美。可以看到我们分别把 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/pkg/ha/ops.go#L91">SubTaskCfg</a> 和 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/pkg/ha/ops.go#L95">SubTaskStage</a> 都 put 进 etcd 了。</p>
+</li>
+<li><p>那上面就 watch 到 stage 来了，对 SubTaskCfg 进行<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/source_worker.go#L682">处理</a>，如果我们是要进行 run 的操作，我们还得<a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/source_worker.go#L735-L743">先把 cfg 拿出来</a>，最后 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/source_worker.go#L716">startSubTask</a></p>
+</li>
+<li><p>startSubTask 中，会 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/source_worker.go#L481">NewSubTask</a>，再 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/source_worker.go#L504">runSubTask</a>。subTask 内部具体的执行组建是由 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/unit/unit.go#L32-L67">unit</a> 负责的，所以它会</p>
+<ol>
+<li><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/subtask.go#L200">initUnits</a></li>
+<li><a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/subtask.go#L207">st.run</a> 其实也是由 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/subtask.go#L228">currentUnit</a> 来 <a href="https://github.com/pingcap/dm/blob/39b5e2098f21260c14373a23069f7e38395d8d7f/dm/worker/subtask.go#L233">Process</a></li>
+</ol>
+</li>
+</ol>
+<h1 id="六、结语"><a href="#六、结语" class="headerlink" title="六、结语"></a>六、结语</h1><p>在 unit Process 后，start-task 就结束啦！是不是还意犹未尽呢？到底有哪些 unit 呢？这些 unit 内部到底是怎么 Process 的呢？在后续的文章中会陆续和大家见面哦。</p>
+<p>其实再复读一下全文，我们发现本篇文章并没有太多很难的东西，大部分篇幅都在描述一些「准备活动」，全程用 etcd watch——master 等待 worker 到来、worker 等待 source 到来、source-worker 等待 subtask 到来。等就完事了。</p>
+<p>任何建议和反馈都欢迎告诉我。下期再见！</p>
+]]></content>
+      <categories>
+        <category>DM 数据旅程</category>
+      </categories>
+      <tags>
+        <tag>DM</tag>
+        <tag>源码阅读</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DM 数据旅程 02：分库分表悲观协调——02Lock -&gt; Resolve Lock</title>
+    <url>/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9402Lock-Resolve-Lock/</url>
+    <content><![CDATA[<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>介绍了与悲观协调有关的各个数据结构之后，接下来将介绍一个 DM 系统从接受到第一条分表 DDL 开始，到所有该 DDL 对应的 Lock resolved 的全过程。</p>
+<blockquote>
+<p>本节内容皆参考 <a href="https://github.com/pingcap/tiflow/tree/release-6.0">DM v6.0</a>，对现在而言，有可能已过时，欢迎大家提出意见～</p>
+</blockquote>
+<h1 id="二、Overview"><a href="#二、Overview" class="headerlink" title="二、Overview"></a>二、Overview</h1><p>假设现在起了 master 和两个 Worker，两个 Worker 分别绑定两个 Source（s1，s2），每个 Source 有两个分表（t1，t2），这四个表会 route 到一个 target table（tarTbl）中。在 DDL 到来之前，两个 worker 会创建好 ShardingGroupKeeper，里面只有一个 target table，两个 source table。</p>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283187.png"></p>
+<p>两个 Worker 先后收到两个 Source 四个分表的同一条 DDL，表示为：</p>
+<ul>
+<li>DDL1：表示对 s1.t1 的 DDL。</li>
+<li>DDL2：表示对 s2.t1 的 DDL。</li>
+<li>DDL3：表示对 s1.t2 的 DDL。</li>
+<li>DDL4：表示对 s2.t2 的 DDL。</li>
+</ul>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283666.png"></p>
+<h1 id="三、具体过程"><a href="#三、具体过程" class="headerlink" title="三、具体过程"></a>三、具体过程</h1><blockquote>
+<p>本小节 worker 对 DDL 的处理从 <a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2853">handleQueryEventPessimistic</a> 开始，如果不知道在此之前的 DDL 做过哪些处理，请期待后续文章😁</p>
+</blockquote>
+<p>接下来将对上图中的步骤一一介绍</p>
+<h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><ol>
+<li>worker1 收到来自 source1 的 DDL1，会直接 <a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2883">TrySync</a>，这里返回了一大堆的参数，其实有用的就只是 <code>synced</code>，简单来说，里面只做了一件事：<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/sharding_group.go#L215">AddItem</a>。下面详细介绍一下 TrySync</li>
+</ol>
+<blockquote>
+<p>本节，假设该 DDL 不是 CreateTableStmt，如果是的话，也很简单，每次都是 remain &lt;=0，synced = true，但是只有第一次发送该 create table 的 worker 会 syncDDL。</p>
+</blockquote>
+<h3 id="TrySync"><a href="#TrySync" class="headerlink" title="TrySync"></a>TrySync</h3><p>想要知道 worker 在悲观协调的时候做了什么，必须要搞懂 TrySync 是怎么运作的。在此之前，我们来重新理解一下 ShardingGroupKeeper：</p>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283187.png"></p>
+<p>单独拿出一个 ShardingGroup 举例（颜色代表 DDL 的种类）：</p>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>worker 收到了以下 DDL</p>
+<ul>
+<li>依次收到了 table1 橙色、黄色、绿色三条 DDL</li>
+<li>收到了 table2 橙色</li>
+<li>这个时候 <code>activeIdx = 0</code>，<code>remain = 1</code>，因为只有 table3 没有收到 active DDL 了</li>
+</ul>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283679.png"></p>
+<ul>
+<li>如果在这个时候收到了 table3 橙色 DDL，<code>remain = 0</code>，处理了这条 DDL 之后，<code>active ++</code></li>
+</ul>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/image-1672713793518.png" alt="image.png"></p>
+<ul>
+<li>如果这个时候收到 table2 绿色 DDL，则会<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/sharding-meta/shardmeta.go#L197-L199">报错</a>，悲观协调要求同一个 source table 中 DDL 必须有序</li>
+</ul>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283186.png"></p>
+<ul>
+<li>如果 group 中所有的 DDL 都 resolved 了。则会<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/sharding-meta/shardmeta.go#L243-L246">重置</a>一下 meta</li>
+</ul>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672403283692.png"></p>
+<p>总结：<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/sharding_group.go#L215">AddItem</a> 就是上面图中把 DDLItem 放进 ShardingSequence 的过程</p>
+<h2 id="Step-2-与-Step-1-相同"><a href="#Step-2-与-Step-1-相同" class="headerlink" title="Step 2 与 Step 1 相同"></a>Step 2 与 Step 1 相同</h2><h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><p>由于 tarTbl 只有两个 source table：s1.t1 和 s1.t2，这时 <a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2883">TrySync</a> 后，<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2948">synced = true</a>，说明该 worker ready</p>
+<h2 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h2><h3 id="worker1"><a href="#worker1" class="headerlink" title="worker1"></a>worker1</h3><ul>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2985">PutInfo</a>：发送 ready info 给 master（后面会详细介绍这个函数）</li>
+<li>之后会被阻塞，<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2992">等待 master 发送 operation</a>。</li>
+</ul>
+<h3 id="Master"><a href="#Master" class="headerlink" title="Master"></a>Master</h3><ul>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L177">watchInfoPut</a>：成功监听到了</li>
+<li>handleInfoPut：master 也开始 <a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L474">TrySync</a>，master 的 TrySync 相比 worker 中的要简单很多，每一个 Info 直接相当于该 source/worker 已 ready，所以直接统计是否所有 ready 即可</li>
+<li>由于这里是第一个 worker 发 info 给 master，所以需要<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/pkg/shardddl/pessimism/keeper.go#L49">新建 Lock</a>，新建 Lock 过程中会获取该 task 所有的 source，并存到 lock 中，这样就知道还有多少 source 没 ready。显然还有 source2 没 ready。</li>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L481-L485">继续等待</a></li>
+</ul>
+<h2 id="Step-5-与-Step-3-相同"><a href="#Step-5-与-Step-3-相同" class="headerlink" title="Step 5 与 Step 3 相同"></a>Step 5 与 Step 3 相同</h2><h2 id="Step-6"><a href="#Step-6" class="headerlink" title="Step 6"></a>Step 6</h2><ul>
+<li>前面与 Step 4 相同，但是这时所有 source 都 ready 了，<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L486">synced = true</a></li>
+</ul>
+<h2 id="Step-7"><a href="#Step-7" class="headerlink" title="Step 7"></a>Step 7</h2><h3 id="master"><a href="#master" class="headerlink" title="master"></a>master</h3><ul>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L599">putOpForOwner</a>：发送 <a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L604">exec</a> operation to owner(worker1)</li>
+</ul>
+<h3 id="Worker1"><a href="#Worker1" class="headerlink" title="Worker1"></a>Worker1</h3><ul>
+<li><p><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/shardddl/pessimist.go#L120-L124">得到 master 的 exec operation</a></p>
+</li>
+<li><p><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L3042-L3043">NewDDLJob</a> 并 handle</p>
+</li>
+<li><p><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L1057">addJob</a>：发送 job 给 DDLJobCh</p>
+</li>
+<li><p>syncDDL：之前 worker 起的协程接受到该 job</p>
+<ul>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L1324">拿到刚刚得到的 operation</a>，并且不会被跳过，因为 ignore = false</li>
+</ul>
+</li>
+</ul>
+<h2 id="Step-8"><a href="#Step-8" class="headerlink" title="Step 8"></a>Step 8</h2><ul>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L1344">同步到下游</a></li>
+</ul>
+<h2 id="Step-9"><a href="#Step-9" class="headerlink" title="Step 9"></a>Step 9</h2><h3 id="Worker1-1"><a href="#Worker1-1" class="headerlink" title="Worker1"></a>Worker1</h3><ul>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L1384">DoneOperationDeleteInfo</a>：发送 done operation 给 master 并删除 info</li>
+</ul>
+<h2 id="Step-10"><a href="#Step-10" class="headerlink" title="Step 10"></a>Step 10</h2><h3 id="Master-1"><a href="#Master-1" class="headerlink" title="Master"></a>Master</h3><ul>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L509">接受 done operation</a></li>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L529">markDone</a></li>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L553">putOpsForNonOwner</a>：给其他所有 non-owner 发送 skip info（skip done 是为了防止把 done 覆盖掉）</li>
+</ul>
+<h3 id="Worker2"><a href="#Worker2" class="headerlink" title="Worker2"></a>Worker2</h3><ul>
+<li>接受到了 no exec(skip) 的 operation，和 Step 7 类似，但是在 syncDDL 的时候会<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L1325-L1328">被 skip</a></li>
+</ul>
+<h2 id="Step-11-和-Step-9-相同"><a href="#Step-11-和-Step-9-相同" class="headerlink" title="Step 11 和 Step 9 相同"></a>Step 11 和 Step 9 相同</h2><h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>本节介绍了在悲观协调过程中，遇到第一条 DDL 语句，生成 Lock，到收到所有 DDL 语句，Lock 解除的过程。</p>
+<p>经过本节的学习，我们已经完全学会了 DM 悲观协调的过程。是不是也没那么复杂😏，但是在这个过程中，我们只知道 DDL 的处理方式，这个过程中的 DML 会怎么办呢？下一章揭晓。</p>
+<h1 id="五、疑似-bug"><a href="#五、疑似-bug" class="headerlink" title="五、疑似 bug"></a>五、疑似 bug</h1><ol>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L552-L559">initShardingGroups</a> 中对 ShardingGroup.sources 进行了初始化，这里包含了该 targetTable 对应的所有 sourceTables</li>
+<li>在 <a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2883">TrySync</a> 的时候，却使用第一个 <code>sourceTable[0]</code>，来标记所有的 <code>DDL[]</code>，如果 <code>len(DDL[]) != 1</code>，则 remain 永远不可能为 0。因为 sourceTables 来源于 ddlInfo。而 DDLInfo 只存了<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2738-L2743">第一条 ddl 的 ddlInfo</a>，实际上对于每一个 Split 之后的 DDL，都会 <a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2694">genDDLInfo</a>。</li>
+<li>但是奇怪的是，代码中标注了<a href="http://errsyncerunitddlonmultipletable/">不支持 multi-table DDL</a>，这个 error 在 pessimist/optimist mode 中都用到了。但是在现在看 pessimist 代码中，又看到其为 multi-table DDL 实现了部分相关逻辑。。。<strong>有毒</strong></li>
+<li>比如：</li>
+</ol>
+<ul>
+<li>https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2957-L2960</li>
+<li>https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/sharding-meta/shardmeta.go#L35</li>
+<li>。。。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>DM 数据旅程</category>
+      </categories>
+      <tags>
+        <tag>DM</tag>
+        <tag>源码阅读</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DM 数据旅程 02：分库分表悲观协调——03reSync</title>
+    <url>/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9403reSync/</url>
+    <content><![CDATA[<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>在分库分表同步的过程中，不同的 DDL 之间，还会穿插着各种各样的 DML 语句，这些 DML 语句要如何处理呢？今天就来看看它们的处理过程——reSync。</p>
+<p>本节先介绍 reSync 的总流程，然后分为四个部分介绍 reSync：</p>
+<ul>
+<li>一阶段：reSync 之前</li>
+<li>开启 reSync</li>
+<li>二阶段：reSync 之后</li>
+<li>关闭 reSync</li>
+</ul>
+<blockquote>
+<p>本节内容皆参考 <a href="https://github.com/pingcap/tiflow/tree/release-6.0">DM v6.0</a>，对现在而言，有可能已过时，欢迎大家提出意见～</p>
+</blockquote>
+<h1 id="二、Overview"><a href="#二、Overview" class="headerlink" title="二、Overview"></a>二、Overview</h1><ol>
+<li>进入 lock 阶段后，在第一次 sync 的时候，会跳过被 active 影响到的 targetTable 对应的 DML</li>
+<li>在 Lock resolved 之后，会回到第一次进入 lock 的 binlog Location 点，进行 reSync，把之前 skip 的 DML 重新 sync，这个阶段会跳过上次执行过的 DML。</li>
+</ol>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672404522042.png"></p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>两种 DML 互相隔离，不会互相影响。</p>
+<h1 id="三、过程"><a href="#三、过程" class="headerlink" title="三、过程"></a>三、过程</h1><h2 id="1、一阶段"><a href="#1、一阶段" class="headerlink" title="1、一阶段"></a>1、一阶段</h2><h3 id="Skip"><a href="#Skip" class="headerlink" title="Skip"></a>Skip</h3><p>在 handleRowsEvent 的时候，<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2368">判断该 event 是否需要 skip</a>：</p>
+<ol>
+<li><p>通过 targetTable 得到对应的 group</p>
+</li>
+<li><p>通过 sourceTable 得到对应的 activeDDLItem，</p>
+<ol>
+<li><p>下图中 ID3 即不需要 skip</p>
+</li>
+<li><p>如果已经收到 activeDDLItem</p>
+<ol>
+<li>如果该 DML 在 active 前面，不需要 skip</li>
+<li>如果该 DML 在 active 后面，则 skip</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://tidb-blog.oss-cn-beijing.aliyuncs.com/media/unnamed-1672404521513.png"></p>
+<h2 id="2、开始-reSync"><a href="#2、开始-reSync" class="headerlink" title="2、开始 reSync"></a>2、开始 reSync</h2><p><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2970-L2975">reSync 信号</a>：把 targetTable 和 binlog location 信息传递给主逻辑中，<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L1843-L1864">重定向 streamer</a>。</p>
+<h3 id="ShardingReSync"><a href="#ShardingReSync" class="headerlink" title="ShardingReSync"></a>ShardingReSync</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ShardingReSync represents re-sync info for a sharding DDL group.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> ShardingReSync <span class="keyword">struct</span> &#123;</span><br><span class="line"></span><br><span class="line">    currLocation   binlog.Location <span class="comment">// current DDL&#x27;s binlog location, initialize to first DDL&#x27;s location</span></span><br><span class="line"></span><br><span class="line">    latestLocation binlog.Location <span class="comment">// latest DDL&#x27;s binlog location</span></span><br><span class="line"></span><br><span class="line">    targetTable    *filter.Table</span><br><span class="line"></span><br><span class="line">    allResolved    <span class="type">bool</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用到的 <code>ShardingReSync</code> 结构体：</p>
+<ul>
+<li>currLocation：用于重定向</li>
+<li>latestLocation：用于判断 reSync 是否结束</li>
+<li>targetTable：用于判断该 DML 是否需要 reSync</li>
+<li>allResolved：与关闭 reSync 有关</li>
+</ul>
+<h2 id="3、二阶段"><a href="#3、二阶段" class="headerlink" title="3、二阶段"></a>3、二阶段</h2><ol>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2333-L2337">判断是否 skip</a></li>
+<li>更新 <code>shardingReSync.currLocation</code> 并判断是否要结束 reSync</li>
+</ol>
+<ul>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2125-L2143">XIDEvent</a></li>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2285-L2300">RotateEvent</a></li>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2328-L2332">RowsEvent</a></li>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L2629-L2645">QueryEvent</a></li>
+</ul>
+<h2 id="4、关闭-reSync"><a href="#4、关闭-reSync" class="headerlink" title="4、关闭 reSync"></a>4、关闭 reSync</h2><p>如果当前 binlog location 已经越过了 shardingReSync.lastestLocation，则重定向回去。根据是否 allResolved 有两种重定向方式，但貌似没有什么区别？</p>
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>经过 reSync 之后，悲观协调就结束了。reSync 的过程不是很复杂，主要包括两种操作：</p>
+<ul>
+<li>重定向</li>
+<li>Skip</li>
+</ul>
+<p>接下来将会开始乐观协调的学习（希望😭</p>
+]]></content>
+      <categories>
+        <category>DM 数据旅程</category>
+      </categories>
+      <tags>
+        <tag>DM</tag>
+        <tag>源码阅读</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DM 数据旅程 02：分库分表悲观协调——01准备过程</title>
+    <url>/2023/01/03/DM-%E6%95%B0%E6%8D%AE%E6%97%85%E7%A8%8B-02%EF%BC%9A%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%82%B2%E8%A7%82%E5%8D%8F%E8%B0%83%E2%80%94%E2%80%9401%E5%87%86%E5%A4%87%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>分库分表的悲观协调方法是 2018 年开发的特性，是 DM 首次支持 MySQL 分库分表的迁移。由于分库分表在各个公司中的应用实在太过广泛，所以只有在支持分库分表迁移后，DM 才有了工程实践的意义，否则只能算作一个玩具。这对 DM 来说意义重大。</p>
+<p>由于悲观协调的内容庞大，本节只讲述悲观协调的准备过程：</p>
+<ul>
+<li>Master 的准备过程</li>
+<li>Worker 的准备过程</li>
+</ul>
+<p>以及在悲观协调过程中至关重要的结构体：</p>
+<ul>
+<li>Lock</li>
+<li>Info</li>
+<li>Operation</li>
+<li>ShardingMeta</li>
+<li>ShardingGroup</li>
+<li>…</li>
+</ul>
+<blockquote>
+<p>注：为了专注于我们的目的（悲观协调），本文不会对无关代码进行解读</p>
+</blockquote>
+<blockquote>
+<p>这一节外链中的代码，读者可能会产生这个逻辑为什么是这里的疑问。这是因为本节并没有完全按照顺序读代码。所以读者可以仅带着学习的心态阅读本节，暂时不需要知道它为什么在代码的这个地方。在下一节中会顺序阅读代码</p>
+</blockquote>
+<blockquote>
+<p>本节基于 <a href="https://github.com/pingcap/tiflow/tree/release-6.0">DM release-6.0.0</a></p>
+</blockquote>
+<h1 id="二、Master"><a href="#二、Master" class="headerlink" title="二、Master"></a>二、Master</h1><h2 id="1、Pessimist-和-LockKeeper"><a href="#1、Pessimist-和-LockKeeper" class="headerlink" title="1、Pessimist 和 LockKeeper"></a>1、Pessimist 和 LockKeeper</h2><ul>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/server.go#L140">NewPessimist</a>：Pessimist 是 Master 处理悲观协调的结构体，其中最重要的成员是 <code>LockKeeper</code>。</li>
+<li><code>LockKeeper</code> 的作用是管理各种各样的 lock。</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// LockKeeper used to keep and handle DDL lock conveniently.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// The lock information do not need to be persistent, and can be re-constructed from the shard DDL info.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> LockKeeper <span class="keyword">struct</span> &#123;</span><br><span class="line"></span><br><span class="line">    mu    sync.RWMutex</span><br><span class="line"></span><br><span class="line">    locks <span class="keyword">map</span>[<span class="type">string</span>]*Lock <span class="comment">// lockID -&gt; Lock</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Lock 可以看作是每一个 ddl 影响的库表，这些库表分布在不同的 MySQL/source 中。由于在悲观协调过程中，数据流（binlog 流）不是停滞的，所以在数据流中，会源源不断地出现新 DDL，即新 lock。</li>
+<li>故 <code>LockKeeper</code> 就是管理这些 lock。</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Lock represents the shard DDL lock in memory.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// This information does not need to be persistent, and can be re-constructed from the shard DDL info.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Lock <span class="keyword">struct</span> &#123;</span><br><span class="line"></span><br><span class="line">    mu sync.RWMutex</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    ID     <span class="type">string</span>   <span class="comment">// lock&#x27;s ID</span></span><br><span class="line"></span><br><span class="line">    Task   <span class="type">string</span>   <span class="comment">// lock&#x27;s corresponding task name</span></span><br><span class="line"></span><br><span class="line">    Owner  <span class="type">string</span>   <span class="comment">// Owner&#x27;s source ID (not DM-worker&#x27;s name)</span></span><br><span class="line"></span><br><span class="line">    DDLs   []<span class="type">string</span> <span class="comment">// DDL statements</span></span><br><span class="line"></span><br><span class="line">    remain <span class="type">int</span>      <span class="comment">// remain count of sources needed to receive DDL info</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// whether the DDL info received from the source.</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// if all of them have been ready, then we call the lock `synced`.</span></span><br><span class="line"></span><br><span class="line">    ready <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">bool</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// whether the operations have done (exec/skip the shard DDL).</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// if all of them have done, then we call the lock `resolved`.</span></span><br><span class="line"></span><br><span class="line">    done <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">bool</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、Lock"><a href="#2、Lock" class="headerlink" title="2、Lock"></a>2、Lock</h2><ul>
+<li>ID 表现形式为 <a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/pkg/utils/common.go#L223">${task}-${schema}.${table}</a>，从 LockKeeper 的结构可以看到同一任务同一表下只能有一个 lock，如果遇到了不同的 DDL，影响的又是同任务同表，则<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/pkg/shardddl/pessimism/lock.go#L72-L74">报错</a>。</li>
+<li>DDLs 为什么是 <code>[]string</code>？因为这里是经过 <code>Split</code> 的 DDLs，单条 DDL 可能会被 Split 成多条 DDL。</li>
+<li>Remain 表示剩余的还未收到 DDL 的 source/worker（以下 worker 都表示 source/worker 对）数量。即如果 worker 把这个 Lock 相关的 DDLs（实际上是 info 的形式）发给 master，master 则把 <code>remain --</code>。</li>
+<li>Ready 和 remain 表达相同的意思，remain 即表示 ready 中为 <code>true</code> 的个数</li>
+<li>Done 表示 operation 结束的 worker 的状态</li>
+</ul>
+<blockquote>
+<p>注意：下面说的所有 worker 都 ready 即是 <strong>remain &lt;= 0</strong>，代码中即是 <strong>synced</strong> = true。这里创造的概念过多，应该收束一下，减少代码的理解难度。</p>
+</blockquote>
+<blockquote>
+<p>TODO：可以把代码中的 remain 改成 noReadies；synced 改成 allReady</p>
+</blockquote>
+<h2 id="3、Info"><a href="#3、Info" class="headerlink" title="3、Info"></a>3、Info</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Info represents the shard DDL information.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// This information should be persistent in etcd so can be retrieved after the DM-master leader restarted or changed.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">NOTE:</span> `Task` and `Source` are redundant in the etcd key path for convenient.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Info <span class="keyword">struct</span> &#123;</span><br><span class="line"></span><br><span class="line">    Task   <span class="type">string</span>   <span class="string">`json:&quot;task&quot;`</span>   <span class="comment">// data migration task name</span></span><br><span class="line"></span><br><span class="line">    Source <span class="type">string</span>   <span class="string">`json:&quot;source&quot;`</span> <span class="comment">// upstream source ID</span></span><br><span class="line"></span><br><span class="line">    Schema <span class="type">string</span>   <span class="string">`json:&quot;schema&quot;`</span> <span class="comment">// schema name of the DDL</span></span><br><span class="line"></span><br><span class="line">    Table  <span class="type">string</span>   <span class="string">`json:&quot;table&quot;`</span>  <span class="comment">// table name of the DDL</span></span><br><span class="line"></span><br><span class="line">    DDLs   []<span class="type">string</span> <span class="string">`json:&quot;ddls&quot;`</span>   <span class="comment">// DDL statements</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Info 并没有什么特别的地方，只是用作 worker 通知 master，某 lock ready 的消息。</p>
+<h2 id="4、Operation"><a href="#4、Operation" class="headerlink" title="4、Operation"></a>4、Operation</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Operation represents a shard DDL coordinate operation.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// This information should be persistent in etcd so can be retrieved after the DM-master leader restarted or changed.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">NOTE:</span> `Task` and `Source` are redundant in the etcd key path for convenient.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Operation <span class="keyword">struct</span> &#123;</span><br><span class="line"></span><br><span class="line">    ID     <span class="type">string</span>   <span class="string">`json:&quot;id&quot;`</span>     <span class="comment">// the corresponding DDL lock ID</span></span><br><span class="line"></span><br><span class="line">    Task   <span class="type">string</span>   <span class="string">`json:&quot;task&quot;`</span>   <span class="comment">// data migration task name</span></span><br><span class="line"></span><br><span class="line">    Source <span class="type">string</span>   <span class="string">`json:&quot;source&quot;`</span> <span class="comment">// upstream source ID</span></span><br><span class="line"></span><br><span class="line">    DDLs   []<span class="type">string</span> <span class="string">`json:&quot;ddls&quot;`</span>   <span class="comment">// DDL statements</span></span><br><span class="line"></span><br><span class="line">    Exec   <span class="type">bool</span>     <span class="string">`json:&quot;exec&quot;`</span>   <span class="comment">// execute or skip the DDL statements</span></span><br><span class="line"></span><br><span class="line">    Done   <span class="type">bool</span>     <span class="string">`json:&quot;done&quot;`</span>   <span class="comment">// whether the `Exec` operation has done</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// only used to report to the caller of the watcher, do not marsh it.</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// if it&#x27;s true, it means the Operation has been deleted in etcd.</span></span><br><span class="line"></span><br><span class="line">    IsDeleted <span class="type">bool</span> <span class="string">`json:&quot;-&quot;`</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Exec：是 master 向 worker 发送消息时所用到的字段。它告知该 worker 是否需要执行 DDL，只需要 owner 执行 DDL</li>
+<li>Done：是 worker 向 master 发送消息时所用到的字段。它告知 master 该 worker done 了。done 并不代表该 worker 执行了 DDL，而是表示一种状态，因为只有 owner 可以执行 DDL，non-owner done 可以当作 non-worker 接受到了 DDL 已执行的信息的确认。</li>
+</ul>
+<h2 id="3、Start"><a href="#3、Start" class="headerlink" title="3、Start"></a>3、Start</h2><blockquote>
+<p>以下可以直接在代码中搜索对应的名字，请务必与对应代码一起阅读！</p>
+</blockquote>
+<ul>
+<li><p>s.pessimist.Start</p>
+</li>
+<li><p>p.run</p>
+<ul>
+<li><p>watchInfoOperation</p>
+<ul>
+<li><p>pessimism.WatchInfoPut：等待 worker 发送 info</p>
+</li>
+<li><p>p.handleInfoPut：</p>
+<ul>
+<li>收到 Worker 发送的 info 之后，意味着该 worker <a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/pkg/shardddl/pessimism/lock.go#L87-L88">已 ready</a></li>
+<li>如果这个时候所有的 source/worker 都 <a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L486">ready（synced）</a> 了，则可以<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L602-L611">发送一个 exec operation 给该 lock 的 owner</a>（第一个<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/pkg/shardddl/pessimism/keeper.go#L49">创建 lock</a> 的 worker）</li>
+</ul>
+</li>
+<li><p>pessimism.WatchOperationPut：</p>
+<ul>
+<li>等待 worker 发送 operation done。</li>
+<li>这里的 operation 和 上面发送的 operation 其实是一样的，这里监听的没有指定 <a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L192">task 和 source</a>，上面发送的 operation 是<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L604">指定 task 和 source</a> 的。所以上面发送的 operation 这里也会监听到，</li>
+</ul>
+</li>
+<li><p>p.handleOperationPut：</p>
+<ul>
+<li><p>收到 <a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L509-L512">not done </a>operation 这里并不进行操作。即上面发送 exec operation 的时候没有 done。</p>
+</li>
+<li><p>当收到 operation is done 时，才进行一系列操作。即从 worker 发送过来的 done operation。</p>
+<ul>
+<li>首先 markDone</li>
+<li>如果是 owner done 了，还会对 non-owner 发送 <a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L553">exec operation</a>，督促 non-owner done</li>
+<li>如果所有的 worker 都 done 了（即 resolved），则<a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/dm/master/shardddl/pessimist.go#L533">把 lock 释放</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>错误处理</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="三、Worker"><a href="#三、Worker" class="headerlink" title="三、Worker"></a>三、Worker</h1><h2 id="1、Pessimist"><a href="#1、Pessimist" class="headerlink" title="1、Pessimist"></a>1、Pessimist</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Pessimist used to coordinate the shard DDL migration in pessimism mode.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Pessimist <span class="keyword">struct</span> &#123;</span><br><span class="line"></span><br><span class="line">    mu sync.RWMutex</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    logger log.Logger</span><br><span class="line"></span><br><span class="line">    cli    *clientv3.Client</span><br><span class="line"></span><br><span class="line">    task   <span class="type">string</span></span><br><span class="line"></span><br><span class="line">    source <span class="type">string</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// the shard DDL info which is pending to handle.</span></span><br><span class="line"></span><br><span class="line">    pendingInfo *pessimism.Info</span><br><span class="line"></span><br><span class="line">    <span class="comment">// the shard DDL lock operation which is pending to handle.</span></span><br><span class="line"></span><br><span class="line">    pendingOp *pessimism.Operation</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L252">NewPessimist</a>：worker 中的 pessimist 不同于 master 中的 pessimist。它只保存了 <code>pendingInfo</code> 和 <code>pendingOp</code>，用于保存当前的 Info 和 Operation</li>
+</ul>
+<h2 id="2、ShardingGroupKeeper"><a href="#2、ShardingGroupKeeper" class="headerlink" title="2、ShardingGroupKeeper"></a>2、ShardingGroupKeeper</h2><ul>
+<li><a href="https://github.com/pingcap/tiflow/blob/release-6.0/dm/syncer/syncer.go#L277">NewShardingGroupKeeper</a>：其中最重要的结构体就是 <code>shardingGroup</code>。<code>shardingGroup</code> 和 master 中的 <code>Lock</code> 类似，也是用于管理 DDL 影响到的 table（在 Lock 中是 source/worker）。</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ShardingGroupKeeper used to keep ShardingGroup.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> ShardingGroupKeeper <span class="keyword">struct</span> &#123;</span><br><span class="line"></span><br><span class="line">    sync.RWMutex</span><br><span class="line"></span><br><span class="line">    groups <span class="keyword">map</span>[<span class="type">string</span>]*ShardingGroup <span class="comment">// target table ID -&gt; ShardingGroup</span></span><br><span class="line"></span><br><span class="line">    cfg    *config.SubTaskConfig</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    shardMetaSchema    <span class="type">string</span></span><br><span class="line"></span><br><span class="line">    shardMetaTable     <span class="type">string</span></span><br><span class="line"></span><br><span class="line">    shardMetaTableName <span class="type">string</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    db     *conn.BaseDB</span><br><span class="line"></span><br><span class="line">    dbConn *dbconn.DBConn</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    tctx *tcontext.Context</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、ShardingGroup"><a href="#3、ShardingGroup" class="headerlink" title="3、ShardingGroup"></a>3、ShardingGroup</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ShardingGroup represents a sharding DDL sync group.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> ShardingGroup <span class="keyword">struct</span> &#123;</span><br><span class="line"></span><br><span class="line">    sync.RWMutex</span><br><span class="line"></span><br><span class="line">    <span class="comment">// remain count waiting for syncing</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// == len(sources):  DDL syncing not started or resolved</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// == 0: all DDLs synced, will be reset to len(sources) after resolved combining with other dm-workers</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// (0, len(sources)): waiting for syncing</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// <span class="doctag">NOTE:</span> we can make remain to be configurable if needed</span></span><br><span class="line"></span><br><span class="line">    remain       <span class="type">int</span></span><br><span class="line"></span><br><span class="line">    sources      <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">bool</span> <span class="comment">// source table ID -&gt; whether source table&#x27;s DDL synced</span></span><br><span class="line"></span><br><span class="line">    IsSchemaOnly <span class="type">bool</span>            <span class="comment">// whether is a schema (database) only DDL <span class="doctag">TODO:</span> zxc add schema-level syncing support later</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    sourceID <span class="type">string</span>                  <span class="comment">// associate dm-worker source ID</span></span><br><span class="line"></span><br><span class="line">    meta     *shardmeta.ShardingMeta <span class="comment">// sharding sequence meta storage</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    firstLocation    *binlog.Location <span class="comment">// first DDL&#x27;s binlog pos and gtid, used to restrain the global checkpoint when un-resolved</span></span><br><span class="line"></span><br><span class="line">    firstEndLocation *binlog.Location <span class="comment">// first DDL&#x27;s binlog End_log_pos and gtid, used to re-direct binlog streamer after synced</span></span><br><span class="line"></span><br><span class="line">    ddls             []<span class="type">string</span>         <span class="comment">// DDL which current in syncing</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    flavor     <span class="type">string</span></span><br><span class="line"></span><br><span class="line">    enableGTID <span class="type">bool</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Remain 和 Lock 中的 remain 意义完全一样，但是这里指 table 是否 ready（现代码中用的 synced）</li>
+</ul>
+<blockquote>
+<p>whether source table’s DDL synced</p>
+</blockquote>
+<blockquote>
+<p>TODO：应该统一概念，这里也用 ready 表示</p>
+</blockquote>
+<ul>
+<li>sources：和 Lock 中的 ready 类似</li>
+<li>firstLocation/firstEndLocation/ddls：这三个其实在 meta 中都有保存，所以感觉其实没啥用</li>
+<li>meta：里面保存着所有的有用的信息，下面详细说</li>
+</ul>
+<h2 id="4、ShardingMeta"><a href="#4、ShardingMeta" class="headerlink" title="4、ShardingMeta"></a>4、ShardingMeta</h2><p>这些信息会被持久化到磁盘中</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ShardingMeta stores sharding ddl sequence</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// including global sequence and each source&#x27;s own sequence</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">NOTE:</span> sharding meta is not thread safe, it must be used in thread safe context.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> ShardingMeta <span class="keyword">struct</span> &#123;</span><br><span class="line"></span><br><span class="line">    activeIdx <span class="type">int</span>                          <span class="comment">// the first unsynced DDL index</span></span><br><span class="line"></span><br><span class="line">    global    *ShardingSequence            <span class="comment">// merged sharding sequence of all source tables</span></span><br><span class="line"></span><br><span class="line">    sources   <span class="keyword">map</span>[<span class="type">string</span>]*ShardingSequence <span class="comment">// source table ID -&gt; its sharding sequence</span></span><br><span class="line"></span><br><span class="line">    tableName <span class="type">string</span>                       <span class="comment">// table name (with schema) used in downstream meta db</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    enableGTID <span class="type">bool</span> <span class="comment">// whether enableGTID, used to compare location</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>activeIdx：表示当前活跃的 DDL 下标，即现在被哪个 DDL 卡住了</li>
+<li>global：表示全局的 DDL 序列，即所有 table 中最长的</li>
+<li>sources：表示各个 table 的 DDL 序列</li>
+</ul>
+<h2 id="5、ShardingSequence-和-DDLItem"><a href="#5、ShardingSequence-和-DDLItem" class="headerlink" title="5、ShardingSequence 和 DDLItem"></a>5、ShardingSequence 和 DDLItem</h2><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ShardingSequence records a list of DDLItem.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> ShardingSequence <span class="keyword">struct</span> &#123;</span><br><span class="line"></span><br><span class="line">    Items []*DDLItem <span class="string">`json:&quot;items&quot;`</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// DDLItem records ddl information used in sharding sequence organization.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> DDLItem <span class="keyword">struct</span> &#123;</span><br><span class="line"></span><br><span class="line">    FirstLocation binlog.Location <span class="string">`json:&quot;-&quot;`</span>      <span class="comment">// first DDL&#x27;s binlog Pos, not the End_log_pos of the event</span></span><br><span class="line"></span><br><span class="line">    DDLs          []<span class="type">string</span>        <span class="string">`json:&quot;ddls&quot;`</span>   <span class="comment">// DDLs, these ddls are in the same QueryEvent</span></span><br><span class="line"></span><br><span class="line">    Source        <span class="type">string</span>          <span class="string">`json:&quot;source&quot;`</span> <span class="comment">// source table ID</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// just used for json&#x27;s marshal and unmarshal, because gtid.Set in FirstLocation is interface,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// can&#x27;t be marshal and unmarshal</span></span><br><span class="line"></span><br><span class="line">    FirstPosition mysql.Position <span class="string">`json:&quot;first-position&quot;`</span></span><br><span class="line"></span><br><span class="line">    FirstGTIDSet  <span class="type">string</span>         <span class="string">`json:&quot;first-gtid-set&quot;`</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的 DDLItem 和 Lock 中的 []DDL 其实是一样的，可以看到一个 DDLItem 中也包含多个 DDL。但是这里的 DDLItem 中封装了更多的信息：</p>
+<blockquote>
+<p>DDLs []string `json:”ddls”` // DDLs, these ddls are in the same QueryEvent</p>
+</blockquote>
+<ul>
+<li>FirstLocation：DDL 开始的位点，主要用于识别该 DDL 之前是否来过了。</li>
+</ul>
+<h2 id="6、Init"><a href="#6、Init" class="headerlink" title="6、Init"></a>6、Init</h2><ul>
+<li>s.sgk.Init()：在下游创建库表 <code>dm_meta.($task)_syncer_sharding_meta</code></li>
+<li>s.initShardingGroups</li>
+</ul>
+<blockquote>
+<p>TODO：可用 <code>utils.FetchTargetDoTables()</code> 替换 <code>fromDB.FetchAllDoTables</code></p>
+</blockquote>
+<ol>
+<li>s.sgk.LoadShardMeta：把数据读出来，存到内存里</li>
+<li>s.sgk.AddGroup：把 ShardingGroup 恢复</li>
+</ol>
+<ul>
+<li>Reset</li>
+</ul>
+<h2 id="7、Start"><a href="#7、Start" class="headerlink" title="7、Start"></a>7、Start</h2><ul>
+<li>启动 syncDDL 线程，等待 DDL job</li>
+</ul>
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>本小节主要介绍了在悲观协调中：</p>
+<ul>
+<li>会用到的各种数据结构</li>
+<li>Master 运行了几个线程，等待 worker 中信息的来临</li>
+<li>Worker 运行了 syncDDL 线程，等待着 DDL 到来</li>
+</ul>
+<p>这一节中，罗列了特别多的概念，看不懂是正常的！在下一节，将从 worker 接受到一条 DDL 开始，直到这条 DDL 的 lock 解除的过程。在这个过程中，我们来学习这些结构体到底是怎么用的。</p>
+<blockquote>
+<p>抱歉第二章就是悲观协调这个功能😂，本来想让系列文章的难度更加平滑一点的，但是人太懒了一拖再拖😂。为了避免再拖下去，先把写了的存活发出来吧！</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>DM 数据旅程</category>
+      </categories>
+      <tags>
+        <tag>DM</tag>
+        <tag>源码阅读</tag>
+      </tags>
+  </entry>
+</search>
